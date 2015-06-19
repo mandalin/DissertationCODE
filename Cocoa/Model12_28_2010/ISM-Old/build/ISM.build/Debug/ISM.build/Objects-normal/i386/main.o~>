@@ -1,0 +1,3 @@
+/Users/mandalin/Desktop/DissertationCODE/Cocoa/Model12_28_2010/ISM/main.mm: In function 'int main()':
+/Users/mandalin/Desktop/DissertationCODE/Cocoa/Model12_28_2010/ISM/main.mm:500: warning: unused variable 'band_number'
+/Users/mandalin/Desktop/DissertationCODE/Cocoa/Model12_28_2010/ISM/main.mm:538: warning: unused variable 'num_sources'

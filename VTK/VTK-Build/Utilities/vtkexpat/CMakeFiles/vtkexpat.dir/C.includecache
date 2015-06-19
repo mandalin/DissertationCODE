@@ -1,0 +1,146 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^(expat|xml|ascii|utf|name|iascii|latin|vtk).*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/Utilities/vtkexpat/expatConfig.h
+vtk_expat_mangle.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/Utilities/vtkexpat/vtk_expat_mangle.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/Utilities/vtkexpat/expatDllConfig.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/vtk_expat_mangle.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/ascii.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/expat.h
+vtk_expat_mangle.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/vtk_expat_mangle.h
+vtkexpat/expatDllConfig.h
+-
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/nametab.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/utf8tab.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmlparse.c
+vtkexpat/expatConfig.h
+-
+expat.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/expat.h
+xmltok.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok.h
+xmlrole.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmlrole.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmlrole.c
+vtkexpat/expatConfig.h
+-
+xmlrole.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmlrole.h
+ascii.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/ascii.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmlrole.h
+xmltok.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok.c
+vtkexpat/expatConfig.h
+-
+xmltok.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok.h
+nametab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/nametab.h
+xmltok_impl.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.h
+ascii.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/ascii.h
+xmltok_impl.c
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.c
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+utf8tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/utf8tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+utf8tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/utf8tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+utf8tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/utf8tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+utf8tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/utf8tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+xmltok_impl.c
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.c
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+xmltok_impl.c
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.c
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+asciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/asciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+iasciitab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/iasciitab.h
+latin1tab.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/latin1tab.h
+xmltok_ns.c
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_ns.c
+xmltok_ns.c
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_ns.c
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.c
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_impl.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Utilities/vtkexpat/xmltok_ns.c
+

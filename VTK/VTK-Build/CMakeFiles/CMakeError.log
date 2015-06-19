@@ -1,0 +1,1054 @@
+Determining if files sys/types.h;sys/prctl.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:3:23: error: sys/prctl.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <sys/types.h>
+#include <sys/prctl.h>
+
+
+int main(){return 0;}
+
+Determining if the system is big endian passed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/TestEndianess.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/TestEndianess.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/TestEndianess.c
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch   -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/TestEndianess.c.o  -o cmTryCompileExec  
+
+TestEndianess.c:
+/* A 16 bit integer is required. */
+typedef unsigned short cmakeint16;
+
+/* On a little endian machine, these 16bit ints will give "THIS IS LITTLE ENDIAN."
+   On a big endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_little[] =  {0x4854, 0x5349, 0x4920, 0x2053, 0x494c, 0x5454, 0x454c, 0x4520, 0x444e, 0x4149, 0x2e4e, 0x0000};
+
+/* on a big endian machine, these 16bit ints will give "THIS IS BIG ENDIAN."
+   On a little endian machine the characters will be exchanged pairwise. */
+const cmakeint16 info_big[] =     {0x5448, 0x4953, 0x2049, 0x5320, 0x4249, 0x4720, 0x454e, 0x4449, 0x414e, 0x2e2e, 0x0000};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_little[argc];
+  require += info_big[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c "/Applications/CMake 2.8-4.app/Contents/share/cmake-2.8/Modules/CheckFunctionExists.c"
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec  -lpthreads 
+ld: library not found for -lpthreads
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining size of __int64 failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/VTK_SIZEOF___INT64.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/VTK_SIZEOF___INT64.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/VTK_SIZEOF___INT64.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/VTK_SIZEOF___INT64.c:19: error: '__int64' undeclared here (not in a function)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/VTK_SIZEOF___INT64.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/VTK_SIZEOF___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the function getsockname exists in the socket failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=getsockname   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c "/Applications/CMake 2.8-4.app/Contents/share/cmake-2.8/Modules/CheckFunctionExists.c"
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=getsockname -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec  -lsocket 
+ld: library not found for -lsocket
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if the include file strstrea.h exists failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++    -Wno-deprecated -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:22: error: strstrea.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if the include file strstream.h exists failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o
+/usr/bin/c++    -Wno-deprecated -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.cxx:1:23: error: strstream.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.cxx.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Checking for non-standard argument to stl allocator<>::max_size failed to compile with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++   -DTEST_KWSYS_STL_HAS_ALLOCATOR_MAX_SIZE_ARGUMENT -DKWSYS_STL_HAVE_STD=1 -Wno-deprecated -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o -c /Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx: In function 'void f(const std::allocator<char>&)':
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:247: error: no matching function for call to 'std::allocator<char>::max_size(long unsigned int) const'
+/usr/include/c++/4.2.1/ext/new_allocator.h:100: note: candidates are: size_t __gnu_cxx::new_allocator<_Tp>::max_size() const [with _Tp = char]
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Checking whether "<>" is needed for template friends failed to compile with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++   -DTEST_KWSYS_CXX_HAS_NULL_TEMPLATE_ARGS -Wno-deprecated -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o -c /Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:132: warning: friend declaration 'int f(A<T>&)' declares a non-template function
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:132: warning: (if this is not what you intended, make sure the function template has already been declared and add <> after the function name here) -Wno-non-template-friend disables this warning
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx: In function 'int f(A<T>&) [with T = int]':
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:138:   instantiated from here
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:134: error: 'int A<int>::x' is private
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:137: error: within this context
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Checking whether struct stat has st_mtim member failed to compile with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/Utilities/kwsys/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building CXX object CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o
+/usr/bin/c++   -DTEST_KWSYS_STAT_HAS_ST_MTIM -Wno-deprecated -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o -c /Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx: In function 'int main()':
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:276: error: 'struct stat' has no member named 'st_mtim'
+/Developer/VTK/Utilities/kwsys/kwsysPlatformTestsCXX.cxx:277: error: 'struct stat' has no member named 'st_mtim'
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/kwsysPlatformTestsCXX.cxx.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining size of __int64 failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/KWSYS_SIZEOF___INT64.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/KWSYS_SIZEOF___INT64.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/KWSYS_SIZEOF___INT64.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/KWSYS_SIZEOF___INT64.c:19: error: '__int64' undeclared here (not in a function)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/KWSYS_SIZEOF___INT64.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/KWSYS_SIZEOF___INT64.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(__int64))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if files malloc.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:20: error: malloc.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <malloc.h>
+
+
+int main(){return 0;}
+
+Determining if files windows.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:21: error: windows.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <windows.h>
+
+
+int main(){return 0;}
+
+Determining if files ieeefp.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:2:20: error: ieeefp.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <ieeefp.h>
+
+
+int main(){return 0;}
+
+Determining if the function areroul exists failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=areroul   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c "/Applications/CMake 2.8-4.app/Contents/share/cmake-2.8/Modules/CheckFunctionExists.c"
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=areroul -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec  
+Undefined symbols for architecture x86_64:
+  "_areroul", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if the function shl_load exists in the dld;dl failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=shl_load   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c "/Applications/CMake 2.8-4.app/Contents/share/cmake-2.8/Modules/CheckFunctionExists.c"
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=shl_load -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec  -ldld -ldl 
+ld: library not found for -ldld
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if files stdio.h;stddef.h;sys/types.h;inttypes.h;dlfcn.h;fcntl.h;memory.h;netdb.h;limits.h;sys/socket.h;netinet/in.h;sys/select.h;stdint.h;stdlib.h;string.h;strings.h;sys/stat.h;sys/time.h;time.h;unistd.h;signal.h;errno.h;ansidecl.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:24:22: error: ansidecl.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <ansidecl.h>
+
+
+int main(){return 0;}
+
+Determining if files stdio.h;stddef.h;sys/types.h;inttypes.h;dlfcn.h;fcntl.h;memory.h;netdb.h;limits.h;sys/socket.h;netinet/in.h;sys/select.h;stdint.h;stdlib.h;string.h;strings.h;sys/stat.h;sys/time.h;time.h;unistd.h;signal.h;errno.h;arpa/inet.h;arpa/nameser.h;ctype.h;dirent.h;dl.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:28:16: error: dl.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <dl.h>
+
+
+int main(){return 0;}
+
+Determining if files stdio.h;stddef.h;sys/types.h;inttypes.h;dlfcn.h;fcntl.h;memory.h;netdb.h;limits.h;sys/socket.h;netinet/in.h;sys/select.h;stdint.h;stdlib.h;string.h;strings.h;sys/stat.h;sys/time.h;time.h;unistd.h;signal.h;errno.h;arpa/inet.h;arpa/nameser.h;ctype.h;dirent.h;float.h;fp_class.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:29:22: error: fp_class.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <fp_class.h>
+
+
+int main(){return 0;}
+
+Determining if files stdio.h;stddef.h;sys/types.h;inttypes.h;dlfcn.h;fcntl.h;memory.h;netdb.h;limits.h;sys/socket.h;netinet/in.h;sys/select.h;stdint.h;stdlib.h;string.h;strings.h;sys/stat.h;sys/time.h;time.h;unistd.h;signal.h;errno.h;arpa/inet.h;arpa/nameser.h;ctype.h;dirent.h;float.h;math.h;nan.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:30:17: error: nan.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <nan.h>
+
+
+int main(){return 0;}
+
+Determining if files stdio.h;stddef.h;sys/types.h;inttypes.h;dlfcn.h;fcntl.h;memory.h;netdb.h;limits.h;sys/socket.h;netinet/in.h;sys/select.h;stdint.h;stdlib.h;string.h;strings.h;sys/stat.h;sys/time.h;time.h;unistd.h;signal.h;errno.h;arpa/inet.h;arpa/nameser.h;ctype.h;dirent.h;float.h;math.h;ndir.h exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFiles.c:30:18: error: ndir.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFiles.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+Source:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <ndir.h>
+
+
+int main(){return 0;}
+
+Determining if the fpclass exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: 'fpclass' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+#include <resolv.h>
+#include <stdarg.h>
+#include <sys/mman.h>
+#include <sys/timeb.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef fpclass
+  cmakeRequireSymbol(0,&fpclass);
+#endif
+  return 0;
+}
+
+Determining if the fp_class exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: 'fp_class' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+#include <resolv.h>
+#include <stdarg.h>
+#include <sys/mman.h>
+#include <sys/timeb.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef fp_class
+  cmakeRequireSymbol(0,&fp_class);
+#endif
+  return 0;
+}
+
+Determining if the strndup exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: 'strndup' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+#include <resolv.h>
+#include <stdarg.h>
+#include <sys/mman.h>
+#include <sys/timeb.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef strndup
+  cmakeRequireSymbol(0,&strndup);
+#endif
+  return 0;
+}
+
+Determining if the _stat exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: '_stat' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:40: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdio.h>
+#include <stddef.h>
+#include <sys/types.h>
+#include <inttypes.h>
+#include <dlfcn.h>
+#include <fcntl.h>
+#include <memory.h>
+#include <netdb.h>
+#include <limits.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <sys/select.h>
+#include <stdint.h>
+#include <stdlib.h>
+#include <string.h>
+#include <strings.h>
+#include <sys/stat.h>
+#include <sys/time.h>
+#include <time.h>
+#include <unistd.h>
+#include <signal.h>
+#include <errno.h>
+#include <arpa/inet.h>
+#include <arpa/nameser.h>
+#include <ctype.h>
+#include <dirent.h>
+#include <float.h>
+#include <math.h>
+#include <pthread.h>
+#include <resolv.h>
+#include <stdarg.h>
+#include <sys/mman.h>
+#include <sys/timeb.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef _stat
+  cmakeRequireSymbol(0,&_stat);
+#endif
+  return 0;
+}
+
+Checking for DIR in sys/ndir.h failed to compile with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/Utilities/vtklibxml2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/Utilities/vtklibxml2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/platformTestsC.c.o
+/usr/bin/gcc  -DTEST_HAVE_SYS_NDIR_H -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/platformTestsC.c.o   -c /Developer/VTK/Utilities/vtklibxml2/platformTestsC.c
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c:82:22: error: sys/ndir.h: No such file or directory
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c: In function 'main':
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c:85: error: 'DIR' undeclared (first use in this function)
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c:85: error: (Each undeclared identifier is reported only once
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c:85: error: for each function it appears in.)
+/Developer/VTK/Utilities/vtklibxml2/platformTestsC.c:85: error: expected expression before ')' token
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/platformTestsC.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining size of uchar failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/SIZEOF_UCHAR.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/SIZEOF_UCHAR.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/SIZEOF_UCHAR.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/SIZEOF_UCHAR.c:19: error: 'uchar' undeclared here (not in a function)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/SIZEOF_UCHAR.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+/Developer/VTK/VTK-Build2/CMakeFiles/CheckTypeSize/SIZEOF_UCHAR.c:
+#include <sys/types.h>
+#include <stdint.h>
+#include <stddef.h>
+
+
+#undef KEY
+#if defined(__i386)
+# define KEY '_','_','i','3','8','6'
+#elif defined(__x86_64)
+# define KEY '_','_','x','8','6','_','6','4'
+#elif defined(__ppc__)
+# define KEY '_','_','p','p','c','_','_'
+#elif defined(__ppc64__)
+# define KEY '_','_','p','p','c','6','4','_','_'
+#endif
+
+#define SIZE (sizeof(uchar))
+char info_size[] =  {'I', 'N', 'F', 'O', ':', 's','i','z','e','[',
+  ('0' + ((SIZE / 10000)%10)),
+  ('0' + ((SIZE / 1000)%10)),
+  ('0' + ((SIZE / 100)%10)),
+  ('0' + ((SIZE / 10)%10)),
+  ('0' +  (SIZE    % 10)),
+  ']',
+#ifdef KEY
+  ' ','k','e','y','[', KEY, ']',
+#endif
+  '\0'};
+
+#ifdef __CLASSIC_C__
+int main(argc, argv) int argc; char *argv[];
+#else
+int main(int argc, char *argv[])
+#endif
+{
+  int require = 0;
+  require += info_size[argc];
+  (void)argv;
+  return require;
+}
+
+
+Determining if the include file malloc.h exists failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckIncludeFile.c:1:20: error: malloc.h: No such file or directory
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckIncludeFile.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if the isnan exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: 'isnan' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef isnan
+  cmakeRequireSymbol(0,&isnan);
+#endif
+  return 0;
+}
+
+Determining if the _isnan exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: '_isnan' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef _isnan
+  cmakeRequireSymbol(0,&_isnan);
+#endif
+  return 0;
+}
+
+Determining if the isinf exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: 'isinf' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <float.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef isinf
+  cmakeRequireSymbol(0,&isinf);
+#endif
+  return 0;
+}
+
+Determining if the function _isinf exists failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o
+/usr/bin/gcc   -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=_isinf   -o CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o   -c "/Applications/CMake 2.8-4.app/Contents/share/cmake-2.8/Modules/CheckFunctionExists.c"
+Linking C executable cmTryCompileExec
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_link_script CMakeFiles/cmTryCompileExec.dir/link.txt --verbose=1
+/usr/bin/gcc     -no-cpp-precomp -mlong-branch  -DCHECK_FUNCTION_EXISTS=_isinf -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/cmTryCompileExec.dir/CheckFunctionExists.c.o  -o cmTryCompileExec  
+Undefined symbols for architecture x86_64:
+  "__isinf", referenced from:
+      _main in CheckFunctionExists.c.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+make[1]: *** [cmTryCompileExec] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+
+Determining if the feenableexcept exist failed with the following output:
+Change Dir: /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp
+
+Run Build Command:/usr/bin/make "cmTryCompileExec/fast"
+/usr/bin/make -f CMakeFiles/cmTryCompileExec.dir/build.make CMakeFiles/cmTryCompileExec.dir/build
+"/Applications/CMake 2.8-4.app/Contents/bin/cmake" -E cmake_progress_report /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CMakeFiles 1
+Building C object CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o
+/usr/bin/gcc  -D_GNU_SOURCE -no-cpp-precomp -mlong-branch     -o CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o   -c /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c: In function 'main':
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: 'feenableexcept' undeclared (first use in this function)
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: (Each undeclared identifier is reported only once
+/Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:8: error: for each function it appears in.)
+make[1]: *** [CMakeFiles/cmTryCompileExec.dir/CheckSymbolExists.c.o] Error 1
+make: *** [cmTryCompileExec/fast] Error 2
+
+File /Developer/VTK/VTK-Build2/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <fenv.h>
+
+void cmakeRequireSymbol(int dummy,...){(void)dummy;}
+int main()
+{
+#ifndef feenableexcept
+  cmakeRequireSymbol(0,&feenableexcept);
+#endif
+  return 0;
+}
+

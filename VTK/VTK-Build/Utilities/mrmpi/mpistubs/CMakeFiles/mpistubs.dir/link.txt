@@ -1,0 +1,2 @@
+/usr/bin/ar cr "/Volumes/Macintosh HD/Developer/VTK/VTK-Build2/bin/libmpistubs.a"  CMakeFiles/mpistubs.dir/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Volumes/Macintosh_HD/Developer/VTK/Utilities/mrmpi/mpistubs/mpi.cpp.o
+/usr/bin/ranlib "/Volumes/Macintosh HD/Developer/VTK/VTK-Build2/bin/libmpistubs.a"

@@ -1,0 +1,66 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: (^|/)((lex|png|j|z|t|D|Q|verdict).*|vtk[^.]*\.([^t]|t[^x]|tx[^x]|cxx|hxx)|vtk[^.]*([^t]|[^i]t|[^c]it|[^i]cit|[^l]icit|[^p]licit|[^m]plicit|[^I]mplicit)\.txx)$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/Testing/Cxx/vtkTestDriver.h
+vtkFloatingPointExceptions.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/Testing/Cxx/vtkFloatingPointExceptions.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkABI.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkFloatingPointExceptions.h
+vtkSystemIncludes.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkSystemIncludes.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkIOStream.h
+vtkConfigure.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkConfigure.h
+vtkWin32Header.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkWin32Header.h
+vtkWinCE.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkWinCE.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkIOStreamFwd.h
+vtkConfigure.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkConfigure.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkOStrStreamWrapper.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkOStreamWrapper.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkSystemIncludes.h
+vtkWin32Header.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkWin32Header.h
+vtkIOStreamFwd.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkIOStreamFwd.h
+vtkIOStream.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkIOStream.h
+vtkType.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkType.h
+vtkOStreamWrapper.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkOStreamWrapper.h
+vtkOStrStreamWrapper.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkOStrStreamWrapper.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkType.h
+vtkConfigure.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkConfigure.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkWin32Header.h
+vtkConfigure.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkConfigure.h
+vtkABI.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkABI.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/Common/vtkWinCE.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/vtkConfigure.h
+
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/VolumeRendering/Testing/Cxx/VolumeRenderingCxxTests.cxx
+vtkTestDriver.h
+/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Volumes/Macintosh HD/Developer/VTK/VTK-Build/VolumeRendering/Testing/Cxx/vtkTestDriver.h
+

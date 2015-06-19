@@ -1,0 +1,61 @@
+/*
+ *  geometry2.h
+ *  ISM
+ *
+ *  Created by Amanda Lind on 3/14/11.
+ *  Copyright 2011 Pennsylvania State University. All rights reserved.
+ *
+ */
+
+//Uses Types:
+//	double, corner, wall, vector
+//#include <vector>
+//#include "wall.h"
+	//#include "position_vector_class.h"
+	//typedef position_vector corner
+
+
+double wall_height=10*.3048;
+double wall_length=20*.3048;
+double wall_width=20*.3048;
+double radius=50;
+
+int num_points=12;
+int num_faces=9;
+
+static float x[num_points][3]=
+    {{-wall_width/2 , -wall_length/2, 0},           //1
+    {-wall_width/2 , -wall_length/2, wall_height},  //2
+    {+wall_width/2 , -wall_length/2, wall_height},  //3
+    {+wall_width/2 , -wall_length/2, 0},            //4
+    {-wall_width/2 , +wall_length/2, 0},            //5
+    {-wall_width/2 , +wall_length/[2, wall_height}, //6
+    {+wall_width/2 , +wall_length/2, 0},            //7
+    {+wall_width/2 , +wall_length/2, wall_height},  //8
+    {-radius, -radius, 0},                          //9
+    {-radius, radius, 0},                           //10
+    {radius,radius,0},                              //11
+    {radius,-radius,0}};                            //12
+                               
+static vtkIdType pts[num_faces][4]=
+    {{4,3,2,1},
+    {5,6,8,7},
+    {7,8,3,4},
+    {1,2,6,5},
+    {3,8,6,2},
+    {9,12,4,1},
+    {10,9,1,5},
+    {11,10,5,2},
+    {12,11,7,4}};
+
+                                   
+// We'll create the building blocks of polydata including data attributes.
+vtkPolyData *face = vtkPolyData::New();
+vtkPoints *points = vtkPoints::New();
+vtkCellArray *polys = vtkCellArray::New();
+vtkFloatArray *scalars = vtkFloatArray::New();
+
+// Load the point, cell, and data attributes.
+for (i=0; i<num_points; i++) points->InsertPoint(i,x[i]);    
+for (i=0; i<num_faces; i++) polys->InsertNextCell(4,pts[i]);
+for (i=0; i<num_points; i++) scalars->InsertTuple1(i,4); //this line clors the plan
