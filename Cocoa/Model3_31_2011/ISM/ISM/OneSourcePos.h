@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Pennsylvania State University. All rights reserved.
 //
 
-#ifndef ISM_OneSourcePos_hx
+#ifndef ISM_OneSourcePos_h
 #define ISM_OneSourcePos_h
 
 void OneSourcePos(unsigned simnum_)
@@ -94,6 +94,7 @@ void OneSourcePos(unsigned simnum_)
     // Receiver Positions
     bool SubSampleSurface=false; //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
+    bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
     // Filtering
     bool dont_use_filtering=false;
@@ -109,10 +110,11 @@ void OneSourcePos(unsigned simnum_)
     bool Canyon=false;
     bool Isolated_Wall=true;
     
-    bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this.
-    bool plot_geom=false;
-    bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
+    //Plotting of Geometry and Receivers
+    bool plot_geom=true;
+    bool Plot_RecPos=true; //dont use with subsampled receiver surfaces !
     
+    //Plotting of Contours
     bool Plot_Contour=false;
     bool Save_Contour=false;
     bool PldB_Plot=false;
@@ -291,12 +293,8 @@ void OneSourcePos(unsigned simnum_)
             Ppos_vector[i].assign(CornerRotated(i,0),CornerRotated(i,1),CornerRotated(i,2));
         }
         
-        
         datumW = unique_corners_output[13]; //after rotation
         std::cout<<std::endl<<unique_corners_output[13].x<<" "<<unique_corners_output[13].y<<" "<<unique_corners_output[13].z<<std::endl;
-        
-        
-        
         
         double tempx=unique_corners_output[196].x;
         double tempy=unique_corners_output[196].y;
@@ -410,8 +408,8 @@ void OneSourcePos(unsigned simnum_)
         Ppos188.assign(0, 0, 0); //microphone C 155'5"
         Ppos204.assign(0, 0, 0); //microphone D 195'8"
         
-        Ppos202.assign(0.9144, 0, 25*0.0254);                  //microphone 1,        3' before the wall, in meters
-        Ppos203.assign(-2.5*0.0254, 0, 36.25*0.0254);    //microphone 2,        on the wall
+        Ppos202.assign(0.9144, 0, 25*0.0254);                    //microphone 1,        3' before the wall, in meters
+        Ppos203.assign(-2.5*0.0254, 0, 36.25*0.0254);            //microphone 2,        on the wall
         Ppos202.assign(-0.9144+5*0.0254, 0, 25*0.0254);          //microphone 3,        3' behind the wall
         
         Ppos_vector.push_back(Ppos202);
@@ -499,12 +497,14 @@ void OneSourcePos(unsigned simnum_)
     unsigned plane_indices;
     unsigned numplanessubsampled=0;
     unsigned initial_microphone_positions=Ppos_vector.size();
+    unsigned plane_ind;
+    
     
     if(SubSampleSurface)
     {
         if(OnlyGroundPlanesSubsampled)
-        {   for(unsigned plane_ind=0; plane_ind<ground_planes.size(); plane_ind++)
-        {
+        {   for(plane_ind=0; plane_ind<ground_planes.size(); plane_ind++)
+    
             numplanessubsampled++;
             plane_indices=ground_planes[plane_ind];                                     //this only samples the ground planes
             temp_sample_points=SubsamplePlane(planes[plane_indices], resolution, 1.2, AddEdgesToSubsample,radius_of_subsampling);  //last number, is how far away from the plane, in the direction of the normal, the point should be.
@@ -528,7 +528,6 @@ void OneSourcePos(unsigned simnum_)
                 //                        print(Ppos_vector[i]);
                 //                        std::cout<<std::endl;
             }
-        }
         }
         else
         {   for(unsigned plane_indices=0; plane_indices<num_original_walls; plane_indices++)
