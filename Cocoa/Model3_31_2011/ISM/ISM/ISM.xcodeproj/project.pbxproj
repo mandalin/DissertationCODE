@@ -823,7 +823,6 @@
 				);
 				OTHER_LDFLAGS = /usr/local/lib;
 				"OTHER_LDFLAGS[arch=*]" = (
-					"\"$(SRCROOT)/../../../../boost_1_45_0/build64/boost/bin.v2/libs/math/build/darwin-4.2.1/release/address-model-64/architecture-x86/link-static/src/tr1/pch.hpp.gch\"",
 					"\"$(SRCROOT)/../../../../boost_1_45_0/build64/boost/bin.v2/libs/math/build/darwin-4.2.1/release/address-model-64/architecture-x86/link-static/threading-multi/sph_neumann.o\"",
 					"\"$(SRCROOT)/../../../../boost_1_45_0/build64/boost/bin.v2/libs/math/build/darwin-4.2.1/release/address-model-64/architecture-x86/link-static/threading-multi/sph_neumannf.o\"",
 					"\"$(SRCROOT)/../../../../boost_1_45_0/build64/boost/bin.v2/libs/math/build/darwin-4.2.1/release/address-model-64/architecture-x86/link-static/threading-multi/sph_legendref.o\"",
