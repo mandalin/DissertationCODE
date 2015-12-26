@@ -284,7 +284,7 @@ void  TerrainMesh(std::vector<wall> walls, std::vector<position_vector> Ppos_vec
         for(int i=0; i<Ppos_vector.size(); i++) //itterates through receivers
         {
             sphere[i]= vtkSphereSource::New();
-            sphere[i]->SetRadius(1);
+            sphere[i]->SetRadius(10); //this used to be 1
             sphere[i]->SetThetaResolution(20);
             sphere[i]->SetPhiResolution(20);
             sphere[i]->SetCenter( Ppos_vector[i].x, Ppos_vector[i].y,   Ppos_vector[i].z );

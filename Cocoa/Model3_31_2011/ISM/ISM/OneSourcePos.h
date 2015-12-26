@@ -396,25 +396,31 @@ void OneSourcePos(unsigned simnum_)
         Temperature=85;//This Temperature is in F. convert to C
         Temperature=(Temperature-32)* (5.0/9.0);
         co=331.3*sqrt(1+((Temperature)/273.15));
-        position_vector Ppos190, Ppos189, Ppos188, Ppos204, Ppos202, Ppos203; // Ppos202
+        position_vector Ppos190, Ppos189, Ppos188, Ppos204, Ppos202, Ppos203, Ppos201; // Ppos202
         
         //Load the Geometry
         planes=geometry_generalized_IsolatedWall(unique_corners_output);
         
         //Add the Virtual Microphone Positions
 
-        Ppos190.assign(0, 0, 0); //microphone A 266' from house wall
-        Ppos189.assign(0, 0, 0); //microphone B 115'10"
-        Ppos188.assign(0, 0, 0); //microphone C 155'5"
-        Ppos204.assign(0, 0, 0); //microphone D 195'8"
+        //Each virtual microphone is 1/8" off the surface it rests on.
+        Ppos190.assign(266*.3048, 0, .125*0.0254); //microphone A 266' from house wall
+        Ppos204.assign((195+8/12)*.3048, 0, .125*0.0254); //microphone D 195'8"
+        Ppos188.assign((155+5/12)*.3048, 0, .125*0.0254); //microphone C 155'5"
+        Ppos189.assign((115+10/12)*.3048, 0, .125*0.0254); //microphone B 115'10"
         
-        Ppos202.assign(0.9144, 0, 25*0.0254);                    //microphone 1,        3' before the wall, in meters
-        Ppos203.assign(-2.5*0.0254, 0, 36.25*0.0254);            //microphone 2,        on the wall
-        Ppos202.assign(-0.9144+5*0.0254, 0, 25*0.0254);          //microphone 3,        3' behind the wall
+        Ppos202.assign(3*.3048, 0, .125*0.0254);                    //microphone 1,        3' before the wall, in meters
+        Ppos203.assign(-2.5*0.0254, 0, 36.125*0.0254);            //microphone 2,        on the wall
+        Ppos201.assign(-3*.3048, 0, .125*0.0254);          //microphone 3,        3' behind the wall
         
+        
+        Ppos_vector.push_back(Ppos190);
+        Ppos_vector.push_back(Ppos204);
+        Ppos_vector.push_back(Ppos188);
+        Ppos_vector.push_back(Ppos189);
         Ppos_vector.push_back(Ppos202);
         Ppos_vector.push_back(Ppos203);
-        Ppos_vector.push_back(Ppos202);
+        Ppos_vector.push_back(Ppos201);
         
         //  Rotate so that microphone receiver positions, and arrival angles are kosher
         position_vector i(1,0,0);
@@ -1097,7 +1103,7 @@ void OneSourcePos(unsigned simnum_)
     /////////////////////////////////////
     ////    Here We Plot the Geom      //
     /////////////////////////////////////
-    Plot_RecPos=false;
+    Plot_RecPos=true;
     
     if(plot_geom)
     {
