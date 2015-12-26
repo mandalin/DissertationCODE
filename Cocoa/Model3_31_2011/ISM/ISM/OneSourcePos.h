@@ -1526,7 +1526,7 @@ void OneSourcePos(unsigned simnum_)
         
         
         //for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)// to do specular IRS for all receiver positions
-        for(unsigned simulation_iter=1; simulation_iter<3; simulation_iter++)
+        for(unsigned simulation_iter=1; simulation_iter<Ppos_vector.size(); simulation_iter++)
         {  PposFinal=Ppos_vector[simulation_iter];
             
             std::strcpy(temp_simulation_name,simulation_name);
@@ -1592,7 +1592,7 @@ if(!write_many_files)
 
 
     char* zeros=new char[10];
-    for(unsigned simulation_iter=6146; simulation_iter<Ppos_vector.size(); simulation_iter++)
+    for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
     {
                 PposFinal=Ppos_vector[simulation_iter];
 
