@@ -1138,8 +1138,9 @@ void OneSourcePos(unsigned simnum_)
     //	//%          Generalize Sources into A structure----------------------------*
     
     int num_planes=planes.size() ;
-    int num_sources=(num_planes-1)^max_order;
-    
+    int num_sources;
+    num_sources= pow((num_planes-1),max_order);
+    printf("\nWith %i planes and a max order of %i, we have a max of %i sources\n", num_planes, max_order, num_sources);
     //*-5a Add Mother Sources
     std::vector<source> sources;
     sources.clear();
