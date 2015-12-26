@@ -37,6 +37,9 @@ bool IsSourceEffective (std::vector<source> sources /*sources*/,
             return is_inside;
         }
     }
+    
+    
+    
     //Shaded Test////// path between two points obscured by plane ////////////////////////////
     bool is_shaded=false;
     
@@ -44,51 +47,56 @@ bool IsSourceEffective (std::vector<source> sources /*sources*/,
         position_vector n,diff,intersection;
         double d,t,temp0,temp1;
         bool point_inside, center_is_visible;
-        
-        n=walls[Q.mother_wall_ind].normal;
-        d=dot(walls[Q.mother_wall_ind].corners[0],n);
-        temp0=dot(src_point,n);
-        diff=sub(Ppos,src_point);
-        temp1=dot(diff,n);
-        t=(d-temp0)/temp1;
-        intersection.assign(src_point.v[0]+diff.v[0]*t, src_point.v[1]+diff.v[1]*t, src_point.v[2]+diff.v[2]*t);
-
     
     
-	for (int i=0; i<num_original_planes;i++ )
-	{   if(i==9)
-        {   std::cout<<"Looking at Ground Plane"<<std::endl;
+        if(Q.source_number!=0) //if the source is the original source, then no need to refer to its mother source and mother plane to see if the ray illuminates the location with the receiver, also, no need to refer to the mother plane or mother source to see if the ray is occluded.
+        {   n=walls[Q.mother_wall_ind].normal;
+            d=dot(walls[Q.mother_wall_ind].corners[0],n);
+            temp0=dot(src_point,n);
+            diff=sub(Ppos,src_point);
+            temp1=dot(diff,n);
+            t=(d-temp0)/temp1;
+            intersection.assign(src_point.v[0]+diff.v[0]*t, src_point.v[1]+diff.v[1]*t, src_point.v[2]+diff.v[2]*t);
         }
+        else
+        {   intersection.assign(src_point.v[0], src_point.v[1], src_point.v[2]);
+        }
+    
+    
+        //this portion draws a line from intersection to the receiver, and checks if the path is obscured by any planes.
+        for (int i=0; i<num_original_planes;i++ )
+        {   if(i==9)
+            {   std::cout<<"Looking at Ground Plane"<<std::endl;
+            }
         
         
-        if(mother_q_i!=0)
-        {   
-            if((i!=Q.mother_wall_ind)&&(i!=walls[Q.mother_wall_ind].num))
-            {     
-                std::cout<<"                Obscured by plane "<<i<<" ?"<<std::endl;
-                if(not(pointvisible(intersection,Ppos,walls[i])))
+            if(mother_q_i!=0)
+            {   
+                if((i!=Q.mother_wall_ind)&&(i!=walls[Q.mother_wall_ind].num))
+                {     
+                    std::cout<<"                Obscured by plane "<<i<<" ?"<<std::endl;
+                    if(not(pointvisible(intersection,Ppos,walls[i])))
+                    {
+                        is_shaded=true;
+                        std::cout<<"        Inaudible-> Path to Receiver is obsucred by wall "<<i<<std::endl;
+                    }
+                }
+            }
+            else
+            { 
+                if(not(pointvisible(src_point,Ppos,walls[i])))
                 {
                     is_shaded=true;
                     std::cout<<"        Inaudible-> Path to Receiver is obsucred by wall "<<i<<std::endl;
                 }
             }
         }
-        else
-        { 
-            if(not(pointvisible(src_point,Ppos,walls[i])))
-            {
-                is_shaded=true;
-                std::cout<<"        Inaudible-> Path to Receiver is obsucred by wall "<<i<<std::endl;
-            }
+
+        if ((is_shaded)||(mother_q_i==0))   //original source does not have field angle or mother wall so only factor determining audibility is if it's "shaded"
+        {   return !is_shaded; 
         }
-	}
-
-    if ((is_shaded)||(mother_q_i==0))   //original source does not have field angle or mother wall so only factor determining audibility is if it's "shaded"
-    {   return !is_shaded; 
-    }
-    
+        
     //In Field Angle ////////is receiver in the field angle of the source //////////////////////
-
     
     
         std::vector<corner>    projected_corners;

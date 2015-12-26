@@ -47,9 +47,9 @@ void DiskApproxFinal(   unsigned Qind,
     R2=2*r2;
     R3=2*r3;
     
-    fcutoff1=(co)*(R1/(4*10^2));
-    fcutoff2=(co)*(R2/(4*10^2));
-    fcutoff3=(co)*(R3/(4*10^2));
+    fcutoff1=(co)*(R1/(pow(4*10,2)));
+    fcutoff2=(co)*(R2/(pow(4*10,2)));
+    fcutoff3=(co)*(R3/(pow(4*10,2)));
     
     fftw_complex* FreqAtt1 = new fftw_complex[Nss];
     fftw_complex* FreqAtt2 = new fftw_complex[Nss];

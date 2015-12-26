@@ -97,7 +97,7 @@ void OneSourcePos(unsigned simnum_)
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
     // Filtering
-    bool dont_use_filtering=false;
+    bool dont_use_filtering=true;
     bool use_R_coeffs=true;
     bool use_R_coeffs_and_Disk_Approx=false;
     
@@ -1116,7 +1116,7 @@ void OneSourcePos(unsigned simnum_)
     
     for(int i=1; i<=43; i++)
     {	nb[i]=i;
-        f_bands[i]=10^(nb[i]/10);
+        f_bands[i]=pow(10,(nb[i]/10));
     }
     
     
@@ -1143,9 +1143,9 @@ void OneSourcePos(unsigned simnum_)
     printf("\nWith %i planes and a max order of %i, we have a max of %i sources\n", num_planes, max_order, num_sources);
     //*-5a Add Mother Sources
     std::vector<source> sources;
-    sources.clear();
+    sources.clear(); 
     
-    source qtemp(Qpos.x, Qpos.y, Qpos.z, 0/*order*/, NAN/*mothersourceind*/, NAN/*motherwallind*/, 1,0/*audible*/,1/*legal*/);
+    source qtemp(Qpos.x, Qpos.y, Qpos.z, 0/*order*/, NaN/*mothersourceind*/, NaN/*motherwallind*/, 1,0/*audible*/,1/*legal*/);
     sources.push_back(qtemp);
     
     //   std::cout<<"Number of sources now = "<<    sources.size()<<"  This is the Original Source"<<std::endl;
@@ -1252,7 +1252,7 @@ void OneSourcePos(unsigned simnum_)
     
     //============things declared for calculation of first order==========//
     //int num_planes=planes.size() ;
-    //int num_sources=(num_planes-1)^max_order;
+    //int num_sources=pow((num_planes-1),max_order);
     //*-5a Add Mother Source
     //std::vector<source> sources;
     //source qtemp(Qpos.x,Qpos.y,Qpos.z,0/*order*/,NAN/*mothersource*/,NAN/*motherwall*/,1,0/*audible*/,1/*legal*/);
