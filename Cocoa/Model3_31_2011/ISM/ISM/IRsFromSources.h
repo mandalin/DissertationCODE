@@ -38,6 +38,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     }
     
     
+    //Prints Effective Sources
     for(int effective_ind=0 ; effective_ind < EffectiveSourceIndices.size() ; effective_ind++)
     {   sources__[EffectiveSourceIndices[effective_ind]].print(sources__,planes__,num_original_walls__);
         
@@ -97,7 +98,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     ////////% *-9.------Make Pretty Picutres-------------------------------------*
     ////////% Plot Geometry. 
     
-    //    plot_GeometryGeneral(planes__, sources__);
+     //   plot_GeometryGeneral(planes__, sources__);
     
     
      //plot_SingleSource(planes__, sources__, sourceindex);
@@ -110,12 +111,25 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     position_vector vector_to_Ppos___from_Qpos;
     std::vector<long double> distance_from_Ppos__;
     std::vector<long double> path_difference;
+    long double original_src_prop_distance;
     
 
     
     long double tempx, tempy, tempz;
     
     std::vector<double> delays;
+    
+    //Calculate the propogation distance from the initial source
+    vector_to_Ppos___from_Qpos.assign(Ppos__.x-sources__[0].position.x,
+                                      Ppos__.y-sources__[0].position.y,
+                                      Ppos__.z-sources__[0].position.z);
+    
+    tempx=vector_to_Ppos___from_Qpos.x;
+    tempy=vector_to_Ppos___from_Qpos.y;
+    tempz=vector_to_Ppos___from_Qpos.z;
+    
+    original_src_prop_distance = std::sqrt(tempx*tempx + tempy*tempy + tempz*tempz);
+    
     
     for(int effective_ind=0; effective_ind<EffectiveSourceIndices.size(); effective_ind++)
     {  // std::cout<<"source positions"<<std::endl;
@@ -143,7 +157,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     
     for(int effective_ind=0; effective_ind<EffectiveSourceIndices.size(); effective_ind++)
     {
-        path_difference.push_back(distance_from_Ppos__[effective_ind]-distance_from_Ppos__[0]);
+        path_difference.push_back(distance_from_Ppos__[effective_ind]-original_src_prop_distance);
         delays.push_back(path_difference[effective_ind]/co__);
          std::cout<<delays[effective_ind]<<std::endl;
         

@@ -470,9 +470,16 @@ void OneSourcePos(unsigned simnum_)
             
             Ppos_vector[i].assign(CornerRotated(i,0),CornerRotated(i,1),CornerRotated(i,2));
         }
-        
 
-        
+        // Creates a list of the ground plane indices for subsampling
+        radius_of_subsampling=200*3048;
+        for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
+        {
+            if (planes[plane_ind].floorplane)
+            {
+                ground_planes.push_back(plane_ind);
+            }
+        }
         
         
     }
