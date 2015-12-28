@@ -98,7 +98,7 @@ void OneSourcePos(unsigned simnum_)
     
     // Filtering
     bool dont_use_filtering=true;
-    bool use_R_coeffs=true;
+    bool use_R_coeffs=false;
     bool use_R_coeffs_and_Disk_Approx=false;
     
     // GeometrySimple
@@ -1533,7 +1533,7 @@ void OneSourcePos(unsigned simnum_)
         
         
         //for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)// to do specular IRS for all receiver positions
-        for(unsigned simulation_iter=1; simulation_iter<Ppos_vector.size(); simulation_iter++)
+        for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
         {  PposFinal=Ppos_vector[simulation_iter];
             
             std::strcpy(temp_simulation_name,simulation_name);
