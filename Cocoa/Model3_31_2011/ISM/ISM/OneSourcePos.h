@@ -111,8 +111,8 @@ void OneSourcePos(unsigned simnum_)
     bool Isolated_Wall=true;
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=true;
-    bool Plot_RecPos=true; //dont use with subsampled receiver surfaces !
+    bool plot_geom=false;
+    bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     
     //Plotting of Contours
     bool Plot_Contour=false;
