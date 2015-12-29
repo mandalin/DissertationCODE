@@ -65,11 +65,7 @@ bool IsSourceEffective (std::vector<source> sources /*sources*/,
     
         //this portion draws a line from intersection to the receiver, and checks if the path is obscured by any planes.
         for (int i=0; i<num_original_planes;i++ )
-        {   if(i==9)
-            {   std::cout<<"Looking at Ground Plane"<<std::endl;
-            }
-        
-        
+        {
             if(mother_q_i!=0)
             {   
                 if((i!=Q.mother_wall_ind)&&(i!=walls[Q.mother_wall_ind].num))
