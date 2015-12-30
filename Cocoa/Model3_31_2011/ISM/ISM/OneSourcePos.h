@@ -9,6 +9,8 @@
 #ifndef ISM_OneSourcePos_h
 #define ISM_OneSourcePos_h
 
+#define FLT_EVAL_METHOD 2/* implementation defined */
+
 void OneSourcePos(unsigned simnum_)
 {
     int   Which_Simulation=simnum_;
@@ -92,7 +94,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=false; //must be true for plotting a contour
+    bool SubSampleSurface=true; //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
@@ -472,7 +474,7 @@ void OneSourcePos(unsigned simnum_)
         }
 
         // Creates a list of the ground plane indices for subsampling
-        radius_of_subsampling=200*3048;
+        radius_of_subsampling=4;
         for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
         {
             if (planes[plane_ind].floorplane)
@@ -481,15 +483,17 @@ void OneSourcePos(unsigned simnum_)
             }
         }
         
-        
+        double resolution=.5;//subsampling resolution
     }
     
     
     //
     ///////////END CHOSE GEOMETRY///////////
     
+    //push unique corners into static member of planes structure
     planes[0].unique_corners=unique_corners_output;
     
+    //calculate the center of gravity for each of the planes
     for(int i=0; i<planes.size(); i++)
     {   planes[i].center=centerOgravity(planes[i]);
     }
@@ -503,8 +507,9 @@ void OneSourcePos(unsigned simnum_)
     
     ///Subsample Surface
     std::vector<position_vector> temp_sample_points;
-    double resolution=2; //BlackBird_sim_37_noHPFing, All L shape Sims
+    //double resolution=2; //BlackBird_sim_37_noHPFing, All L shape Sims
     //double resolution=1; //Blackbird_sim_0_noHPFing
+    
     
     std::vector<unsigned> num_points_in_plane_mapping;
     unsigned plane_indices;
@@ -516,30 +521,34 @@ void OneSourcePos(unsigned simnum_)
     if(SubSampleSurface)
     {
         if(OnlyGroundPlanesSubsampled)
-        {   for(plane_ind=0; plane_ind<ground_planes.size(); plane_ind++)
-    
-            numplanessubsampled++;
-            plane_indices=ground_planes[plane_ind];                                     //this only samples the ground planes
-            temp_sample_points=SubsamplePlane(planes[plane_indices], resolution, 1.2, AddEdgesToSubsample,radius_of_subsampling);  //last number, is how far away from the plane, in the direction of the normal, the point should be.
-            num_points_in_plane_mapping.push_back(temp_sample_points.size());
+        {
             
-            Ppos_vector.reserve(Ppos_vector.size()+temp_sample_points.size());
-            Ppos_vector.insert(Ppos_vector.end(), temp_sample_points.begin(), temp_sample_points.end());
-            temp_sample_points.clear();
-            
-            
-            std::cout<<"Wall information:"<<std::endl<<"     Wall# "<<plane_indices<<std::endl<<"     Corners:: "<<std::endl;
-            for(int i =0; i<planes[plane_indices].corners.size(); i++)
+            for(plane_ind=0; plane_ind<ground_planes.size(); plane_ind++)
             {
-                //                        print(planes[plane_indices].corners[i]);
-                //                        std::cout<<std::endl;
-            }
-            
-            std::cout<<"Subsampled Points"<<std::endl;
-            for(int i =0; i<Ppos_vector.size(); i++)
-            {
-                //                        print(Ppos_vector[i]);
-                //                        std::cout<<std::endl;
+                numplanessubsampled++;
+                plane_indices=ground_planes[plane_ind];                                     //this only samples the ground planes
+                temp_sample_points=SubsamplePlane(planes[plane_indices], resolution, 1.2, AddEdgesToSubsample,radius_of_subsampling);  //last number, is how far away from the plane, in the direction of the normal, the point should be.
+                num_points_in_plane_mapping.push_back(temp_sample_points.size());
+                
+                Ppos_vector.reserve(Ppos_vector.size()+temp_sample_points.size());
+                Ppos_vector.insert(Ppos_vector.end(), temp_sample_points.begin(), temp_sample_points.end());
+                temp_sample_points.clear();
+                
+                
+                std::cout<<"Wall information:"<<std::endl<<"     Wall# "<<plane_indices<<std::endl<<"     Corners:: "<<std::endl;
+                
+                //for(int i =0; i<planes[plane_indices].corners.size(); i++)
+                //{
+                    //                        print(planes[plane_indices].corners[i]);
+                    //                        std::cout<<std::endl;
+                //}
+                
+                std::cout<<"Subsampled Points"<<std::endl;
+                //for(int i =0; i<Ppos_vector.size(); i++)
+                //{
+                    //                        print(Ppos_vector[i]);
+                    //                        std::cout<<std::endl;
+                //}
             }
         }
         else
@@ -1536,6 +1545,7 @@ void OneSourcePos(unsigned simnum_)
         for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
         {  PposFinal=Ppos_vector[simulation_iter];
             
+            printf("------------Simulation %i------------",simulation_iter);
             std::strcpy(temp_simulation_name,simulation_name);
             //std::cout<<temp_simulation_name<<endl;
             successful=IRsFromSources( PposFinal, LegalSourceIndices, sources,  planes, num_original_walls,  azimuth,  elevation,Which_Simulation,  simulation_iter,  co,  s,  dont_use_filtering,  use_R_coeffs,  use_R_coeffs_and_Disk_Approx,temp_simulation_name, directory);

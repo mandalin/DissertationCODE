@@ -97,7 +97,7 @@ public:
             for(int i = 0; i<ref_walls_inds.size(); i++)
             {  
                 if(ref_walls_inds[i]>num_orig_planes-1)
-                {std::cout<<ref_walls_inds[i]<<"("<< planes[ref_walls_inds[i]].num<<")" <<" ";
+                {std::cout<<ref_walls_inds[i]<<"("<< planes[ref_walls_inds[i]].num<<")" <<" ";  //EXC_BAD_ACCESS sometimes
                 }
                 else
                 {    std::cout<<ref_walls_inds[i]<<" ";}

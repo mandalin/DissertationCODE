@@ -51,5 +51,6 @@ bool pointvisible(position_vector source_position,position_vector receiver_posit
     if(on_plane)
     {center_is_visible=true;}
 	
-	return center_is_visible;
+    return center_is_visible;
+    
 }

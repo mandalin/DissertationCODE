@@ -26,7 +26,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     //Push the indices of effective sources into the array
     for(int i=0; i<LegalSourceIndices__.size(); i++)
     {  
-        std::cout<<"Source # "<<LegalSourceIndices__[i]<<std::endl;   
+        std::cout<<"Source # "<<LegalSourceIndices__[i]<<std::endl;
         
         temp_audible=IsSourceEffective (sources__ /*sources__*/, planes__ /*planes__*/,LegalSourceIndices__[i], Ppos__, num_original_walls__);
         
@@ -82,17 +82,17 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     
     write = fopen (whole_filename_src,"a");
     
-    
     if(write)
     {
         fprintf(write, "\n\n Audible Sources for IR number %i \n", Which_IR__);
         for(int sourceNumber=0; sourceNumber<EffectiveSourceIndices.size(); sourceNumber++)
         {
             fprintf(write, " %i", EffectiveSourceIndices[sourceNumber]);
-    
+            
         }
     }
     fclose(write);
+
     
     //
     ////////% *-9.------Make Pretty Picutres-------------------------------------*
@@ -685,7 +685,6 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
         // fprintf(write,"];");
         
         fclose(writeIR);
-        
     }
     else
     {

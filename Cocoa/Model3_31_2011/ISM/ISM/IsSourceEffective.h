@@ -67,7 +67,8 @@ bool IsSourceEffective (std::vector<source> sources /*sources*/,
         for (int i=0; i<num_original_planes;i++ )
         {
             if(mother_q_i!=0)
-            {   
+            {
+                
                 if((i!=Q.mother_wall_ind)&&(i!=walls[Q.mother_wall_ind].num))
                 {     
                     std::cout<<"                Obscured by plane "<<i<<" ?"<<std::endl;
