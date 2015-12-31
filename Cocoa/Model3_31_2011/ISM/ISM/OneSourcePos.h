@@ -483,7 +483,7 @@ void OneSourcePos(unsigned simnum_)
             }
         }
         
-        double resolution=.5;//subsampling resolution
+       
     }
     
     
@@ -505,10 +505,11 @@ void OneSourcePos(unsigned simnum_)
     //
     //
     
-    ///Subsample Surface
+    ///SET Subsample Surface, number of points per meter squared
     std::vector<position_vector> temp_sample_points;
     //double resolution=2; //BlackBird_sim_37_noHPFing, All L shape Sims
     //double resolution=1; //Blackbird_sim_0_noHPFing
+     double resolution=10;//Isolated Wall
     
     
     std::vector<unsigned> num_points_in_plane_mapping;
