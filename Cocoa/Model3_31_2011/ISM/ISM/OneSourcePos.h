@@ -519,7 +519,8 @@ void OneSourcePos(unsigned simnum_)
     unsigned plane_ind;
     
     
-    
+   //double height_above_plane=1.2;      //1.2 meters listener height
+    double height_above_plane=.003175; // 1/8" above the plane
     
     if(SubSampleSurface)
     {
@@ -530,7 +531,7 @@ void OneSourcePos(unsigned simnum_)
             {
                 numplanessubsampled++;
                 plane_indices=ground_planes[plane_ind];                                     //this only samples the ground planes
-                temp_sample_points=SubsamplePlane(planes[plane_indices], resolution, 1.2, AddEdgesToSubsample,radius_of_subsampling);  //last number, is how far away from the plane, in the direction of the normal, the point should be.
+                temp_sample_points=SubsamplePlane(planes[plane_indices], resolution, height_above_plane, AddEdgesToSubsample,radius_of_subsampling);  //last number, is how far away from the plane, in the direction of the normal, the point should be.
                 num_points_in_plane_mapping.push_back(temp_sample_points.size());
                 
                 Ppos_vector.reserve(Ppos_vector.size()+temp_sample_points.size());
