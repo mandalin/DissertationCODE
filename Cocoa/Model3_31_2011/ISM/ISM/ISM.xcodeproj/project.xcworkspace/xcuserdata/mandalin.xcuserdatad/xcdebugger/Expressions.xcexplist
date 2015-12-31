@@ -18,5 +18,13 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "TerrainMesh_Contour(std::vector&lt;wall, std::allocator&lt;wall&gt; &gt;, int, std::vector&lt;unsigned int, std::allocator&lt;unsigned int&gt; &gt;, double, char const*, char*, bool, bool, bool, bool):TerrainMesh_Contour.h">
+         <PersistentStrings>
+            <PersistentString
+               value = "triangulation_set">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

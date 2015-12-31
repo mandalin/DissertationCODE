@@ -68,7 +68,7 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
         {  
             
             std::getline (myfile,line);
-            std::cout << line << std::endl;
+           // std::cout << line << std::endl;
             
             if(!myfile.good())
             {break;}
@@ -94,28 +94,38 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
                 duby =   boost::lexical_cast<double>(SplitVec[2]);
                 dubz =   boost::lexical_cast<double>(SplitVec[3]);
                 dubPLdB= boost::lexical_cast<double>(SplitVec[4]);
-                PLdBs.push_back(dubPLdB);
+                
                 
                 
                 
                 // AllPLdBpoints[triangulation_set]->InsertNextPoint( dubx,duby,dubz);
                 if(linenum < start_points[triangulation_set+1]) 
-                {AllPLdBpoints[triangulation_set]->InsertNextPoint( dubx,duby,dubz);}
+                {   AllPLdBpoints[triangulation_set]->InsertNextPoint( dubx,duby,dubz);
+                    PLdBs.push_back(dubPLdB);
+                    std::cout << line << std::endl;
+                }
                 
                 if(linenum == start_points[triangulation_set+1]) 
-                {  triangulation_set++;
-                    std::cout<<triangulation_set<<std::endl;
-                    // AllPLdBpoints.push_back(new vtkPoints);
-                    
-                    if(triangulation_set < number_of_sets)
-                    {
-                        AllPLdBpoints[triangulation_set]=vtkPoints::New();
-                        AllPLdBpoints[triangulation_set]->InsertNextPoint( dubx,duby,dubz);
+                {
+                    while(linenum == start_points[triangulation_set+1]) //this handles the case of empty triangulation sets.
+                    {   triangulation_set++;
+                            if(triangulation_set < number_of_sets)
+                            {
+                                AllPLdBpoints[triangulation_set]=vtkPoints::New();
+                            }
+                        
+                        std::cout<<triangulation_set<<std::endl;
                     }
+                    AllPLdBpoints[triangulation_set]->InsertNextPoint( dubx,duby,dubz);
+                    PLdBs.push_back(dubPLdB);
+                    std::cout << line << std::endl;
                 }
                 
             }
             linenum++;
+            if (linenum==398)
+            {std::cout<<"BreakHere"<<endl;
+            }
         }
         myfile.close();
         

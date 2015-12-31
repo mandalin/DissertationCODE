@@ -117,11 +117,11 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     
     //Plotting of Contours
-    bool Plot_Contour=false;
-    bool Save_Contour=false;
+    bool Plot_Contour=true;
+    bool Save_Contour=true;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
-    bool NumRefs_Plot=false;
+    bool NumRefs_Plot=true;
     
     double Temperature;
     
@@ -519,6 +519,8 @@ void OneSourcePos(unsigned simnum_)
     unsigned plane_ind;
     
     
+    
+    
     if(SubSampleSurface)
     {
         if(OnlyGroundPlanesSubsampled)
@@ -886,7 +888,7 @@ void OneSourcePos(unsigned simnum_)
     ////////END CHOSE SOURCE POSITIONS/////////
     
     ///Let's have a look
-    //   const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/Blackbird_sim_37_noHPFing/NumRefs_Contour_Output3.txt";
+       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
     
     //PLdB CONTOURS
     
@@ -901,9 +903,9 @@ void OneSourcePos(unsigned simnum_)
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/Pmax_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/Pmax_Contour_Output3.txt";
     //
-    //            if(Plot_Contour)
-    //            {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot );
-    //            }
+                if(Plot_Contour)
+                {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot );
+                }
     
     //    //TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourPmaxFileName,0);
     //    //TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourPLDBFileName,1);
