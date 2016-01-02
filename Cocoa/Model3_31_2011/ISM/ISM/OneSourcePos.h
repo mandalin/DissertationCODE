@@ -1126,6 +1126,10 @@ void OneSourcePos(unsigned simnum_)
     //            //        }
     //            //    }
     //            //
+    
+                Which_Receiver=4;
+                Ppos.assign(Ppos_vector[Which_Receiver]);
+    
                 OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
     
     t = clock() - t;
