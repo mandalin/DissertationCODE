@@ -95,7 +95,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=true; //must be true for plotting a contour
+    bool SubSampleSurface=false; //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
@@ -1085,6 +1085,54 @@ void OneSourcePos(unsigned simnum_)
     //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     
+    /////////////////////////////////////
+    ////      For Single Edge BTM      //
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    clock_t t;
+    t = clock();
+    
+    //            //Corners 27 and 148 Two are equivalent
+    //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
+                Edge * TempSingleEdge;
+                TempSingleEdge = EdgeHead->next;
+    //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
+    //
+    //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
+    //            TempSingleEdge.wall2ind=6;
+    //            TempSingleEdge.walls_along_edge.push_back(& planes[6]);
+    //            TempSingleEdge->Calculate_Solid_Angle();
+    //
+                //Find the Norm of One Wedge Face
+                position_vector surface1_norm;
+                surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+    //
+    //            Edge * Ptr_To_Edge2Add;
+    //            Ptr_To_Edge2Add = &TempSingleEdge;
+    //            //Edge * EdgeHead;
+    //            EdgeHead=NULL;
+    //
+    //            TempSingleEdge.AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
+    //
+                double fsdiff=48000;
+    //            //
+    //            //    std::vector<int> viableplanes;
+    //            //    for(int planeInd=0;planeInd<121;planeInd++)
+    //            //    {
+    //            //        for(int cornInd=0; cornInd<planes[planeInd].corner_indices.size() ;cornInd++)
+    //            //        {  if(planes[planeInd].corner_indices[cornInd]==13)
+    //            //            {   viableplanes.push_back(planeInd);
+    //            //            }
+    //            //        }
+    //            //    }
+    //            //
+                OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+    
+    t = clock() - t;
+    printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
+    
+    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     ///////////////////////////////////

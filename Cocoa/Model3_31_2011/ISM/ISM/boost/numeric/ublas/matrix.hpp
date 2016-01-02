@@ -1145,7 +1145,7 @@ namespace boost { namespace numeric {
     * The data is stored as a vector of vectors, meaning that rows or columns might not be stored into contiguous chunks
     * of memory. Orientation and storage can also be specified, otherwise a row major and unbounded arrays are used. 
     * The storage type defaults to \c unbounded_array<unbounded_array<T>> and orientation is \c row_major. It is \b not 
-    * required by the storage to initialize elements of the matrix. For a \f$(m \times n)\f$-dimensional matrix and 
+    * required by the storage to initialize elements of the matrix. For a \f$(m \times n)\f$-dimensional matrix and
     * \f$ 0 \leq i < m, 0 \leq j < n\f$, every element \f$m_{i,j}\f$ is mapped to the \f$(i.n + j)\f$-th element of the 
     * container for row major orientation or the \f$(i + j.m)\f$-th element of the container for column major orientation.
     *
