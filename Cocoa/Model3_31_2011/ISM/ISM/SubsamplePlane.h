@@ -176,10 +176,12 @@ std::vector<position_vector> SubsamplePlane(wall wall1, double resolution, doubl
         tmpx=(tempcorner.x);
         tmpy=(tempcorner.y);
         if(( tmpx>=-radius_of_sim*.5) && (tmpx <= radius_of_sim)&&( tmpy>=-radius_of_sim*.5) && (tmpy <= radius_of_sim))
-        {sample_corners.push_back(tempcorner);}       
+        {
+            sample_corners.push_back(tempcorner);
+   
+        }
     }
-
-        
+    std::cout<<endl<<"Sample Points: "<<sample_corners.size()<<endl;
     return sample_corners;
 }
     

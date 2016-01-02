@@ -41,7 +41,8 @@ void OneSourcePos(unsigned simnum_)
     
     char * directory= new char[1000];
     //strcat(directory,"/Volumes/WORKSPACE-TWO/MontrealWork/SimB_Mic106/");
-    strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/");
+    strcat(directory,"/Volumes/WORKSPACE-ONE/InProgress/");
+    
     //    bool dont_use_filtering=false;
     //    bool use_R_coeffs=false;
     //    bool use_R_coeffs_and_Disk_Approx=true;
@@ -117,8 +118,8 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     
     //Plotting of Contours
-    bool Plot_Contour=true;
-    bool Save_Contour=true;
+    bool Plot_Contour=false;
+    bool Save_Contour=false;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
     bool NumRefs_Plot=true;
@@ -474,7 +475,7 @@ void OneSourcePos(unsigned simnum_)
         }
 
         // Creates a list of the ground plane indices for subsampling
-        radius_of_subsampling=4;
+        radius_of_subsampling=20;
         for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
         {
             if (planes[plane_ind].floorplane)

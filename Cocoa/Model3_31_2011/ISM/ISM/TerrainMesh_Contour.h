@@ -123,9 +123,6 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
                 
             }
             linenum++;
-            if (linenum==398)
-            {std::cout<<"BreakHere"<<endl;
-            }
         }
         myfile.close();
         
