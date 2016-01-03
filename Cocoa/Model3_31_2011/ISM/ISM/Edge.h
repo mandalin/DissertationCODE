@@ -278,7 +278,7 @@ public:
         
     }
     
-     Edge *  AddEdge(std::vector<corner> all_unique_corners, Edge * EdgeHead, Edge * Edge2Add)
+     Edge *  AddEdge(std::vector<corner> all_unique_corners, Edge * EdgeHead, Edge * Edge2Add, std::vector<wall> & planes)
     {
         
         //create a pointer that will go out of scope, with no object, with which to explore the linked list
@@ -335,6 +335,7 @@ public:
                 else if(Edge2Add->corner2ind == current_edge->corner2ind)
                 {   if(current_edge->wall2ind == -1)
                         {   current_edge->wall2ind=Edge2Add->wall1ind;
+                            current_edge->walls_along_edge.push_back(& planes[current_edge->wall2ind]);
                             return EdgeHead;
                         }
                     else

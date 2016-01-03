@@ -243,5 +243,69 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "BTMDiffraction.h"
+            timestampString = "473458669.69761"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,double r,double theta, double Z,position_vector Ppos, position_vector Qpos, position_vector corner1, position_vector corner2, position_vector least_time_point, double co, double rho, double S, double fsdiff,unsigned Which_SIM__, unsigned Which_IR__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneEdgeBTM.h"
+            timestampString = "473458853.237525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "OneEdgeBTM(Edge SingleEdge, position_vector Norm_Of_One_Wedge_Face, position_vector Qpos, position_vector Ppos, double co /*soundspeed*/, double fsdiff,unsigned Which_SIM__, unsigned Which_IR__, char* simulation_name, const char* directory, std::vector&lt;corner&gt; &amp; unique_corners )"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Edge.h"
+            timestampString = "473463959.468029"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "235"
+            endingLineNumber = "235"
+            landmarkName = "Calculate_Solid_Angle()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Edge.h"
+            timestampString = "473464465.685404"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
+            landmarkName = "AddEdge(std::vector&lt;corner&gt; all_unique_corners, Edge * EdgeHead, Edge * Edge2Add, std::vector&lt;wall&gt; &amp; planes)"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -1029,7 +1029,7 @@ void OneSourcePos(unsigned simnum_)
             Edge * Ptr_To_Edge2Add;
             Ptr_To_Edge2Add = SingleEdge;
             
-            EdgeHead=SingleEdge->AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
+            EdgeHead=SingleEdge->AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add, planes);
             
             
         }
@@ -1096,6 +1096,7 @@ void OneSourcePos(unsigned simnum_)
     //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
                 Edge * TempSingleEdge;
                 TempSingleEdge = EdgeHead->next;
+                TempSingleEdge->Calculate_Solid_Angle();
     //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
     //
     //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
@@ -1129,6 +1130,7 @@ void OneSourcePos(unsigned simnum_)
     
                 Which_Receiver=4;
                 Ppos.assign(Ppos_vector[Which_Receiver]);
+                TempSingleEdge->alpha_w=2*pi;
     
                 OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
     
