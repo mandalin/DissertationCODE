@@ -95,7 +95,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=false; //must be true for plotting a contour
+    bool SubSampleSurface=true; //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
