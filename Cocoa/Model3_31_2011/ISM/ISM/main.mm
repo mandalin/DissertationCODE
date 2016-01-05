@@ -328,7 +328,7 @@ int main()
     //
     //
     
-    for(unsigned simnum_=2; simnum_<=2; simnum_++)
+    for(unsigned simnum_=1; simnum_<=1; simnum_++)
     {
         OneSourcePos(simnum_);
     }

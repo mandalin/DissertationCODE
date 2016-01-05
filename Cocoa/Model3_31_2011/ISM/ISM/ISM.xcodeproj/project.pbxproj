@@ -260,7 +260,6 @@
 		C5F8485A1499BA08005A6414 /* IRsFromSources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IRsFromSources.h; sourceTree = "<group>"; };
 		C5F8A12A19D2785500588FCB /* config.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = config.hpp; path = boost/tr1/detail/config.hpp; sourceTree = "<group>"; };
 		C5F8A13019D27B3800588FCB /* tr1.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = tr1.hpp; sourceTree = "<group>"; };
-		C5F9544214F56E6600604957 /* TerrainMesh_NumRefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TerrainMesh_NumRefs.h; sourceTree = "<group>"; };
 		C5FD859612FBAD2B00136C2F /* LinearSpectrum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinearSpectrum.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -529,7 +528,6 @@
 				C5DC2C2613832D860078F791 /* ConsolidateLegalSources.h */,
 				C568A547146C90B600252736 /* TerrainMesh.h */,
 				C51E878C14F0322F00F2EF5C /* TerrainMesh_Contour.h */,
-				C5F9544214F56E6600604957 /* TerrainMesh_NumRefs.h */,
 				C568A548146C934200252736 /* Trash.h */,
 				C5AF3A9D13A6940A00994808 /* IsSourceEffective.h */,
 				C5D8C70313BB789C0080A5C5 /* CplxDiv.h */,

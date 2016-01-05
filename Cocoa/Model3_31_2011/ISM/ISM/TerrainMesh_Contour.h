@@ -141,7 +141,7 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
     std::vector< vtkSmartPointer<vtkDelaunay2D> >   Alldelaunay(number_of_sets);   
     std::vector< vtkSmartPointer<vtkPolyData> >     AllPLdBPolydata(number_of_sets);   
     
-    for(int i =1; i<number_of_sets; i++)
+    for(int i =1; i<number_of_sets; i++) //Puts into a struct the way the points are organized.
     {    std::cout<<AllPLdBpoints[i]->GetNumberOfPoints()<<std::endl;
         AllPLdBPolydata[i]=vtkPolyData::New();
         AllPLdBPolydata[i]->SetPoints(AllPLdBpoints[i]);
@@ -153,33 +153,62 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
     //Organize thePLdB Scalars
     //Get PLdB Bounds
     double maxPL,minPL;
-    //maxPL=PLdBs[0]-0.7435;  //this is hardcoded Pmax scale value for gac3 doubled 
-    maxPL=PLdBs[0]-77.3308;  //this is hardcoded PLdB of gac3 doubled waveform
-    maxPL=PLdBs[0]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
     
-    for(int ind=1; ind< PLdBs.size(); ind++)
-    {  // PLdBs[ind]=PLdBs[ind]-0.7435;                  //this is hardcoded Pmax scale value for gac3 doubled 
-        PLdBs[ind]=PLdBs[ind]-77.3308;                  //this is hardcoded scale value for gac3 doubled PLdB
-        //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
+    if(NumRefs_Plot)
+    {   maxPL=-999; //hardcoded for isolated wall simulation
+        minPL=999; //hardcoded for isolated wall simulation
+        for(int ind=0; ind< PLdBs.size(); ind++)
+        {
+            if(PLdBs[ind]>maxPL)
+            {maxPL=PLdBs[ind];}
+            if(PLdBs[ind]<minPL)
+            {minPL=PLdBs[ind];}
+            
+        }
+         minPL=0;
+    }
+    if(Pmax_Plot)
+    {    maxPL=140.7781;//hardcoded for isolated wall simulation
+        for(int ind=0; ind< PLdBs.size(); ind++)
+        {   //PLdBs[ind]=PLdBs[ind]-0.7435;                  //this is hardcoded Pmax scale value for gac3 doubled
+            //PLdBs[ind]=PLdBs[ind]-77.3308;                  //this is hardcoded scale value for gac3 doubled PLdB
+            //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
+            PLdBs[ind]=PLdBs[ind]-36.0135*2;     //this subtracts the maximum pressure of the input waveform (not halved)
+            
+            
+        }
+        //From before when we were plotting absolut PLdB
+        for(int ind=0; ind< PLdBs.size(); ind++)
+        {   if(PLdB_Plot)
+        {   if(PLdBs[ind]<minPL)
+        {   minPL=PLdBs[ind];}
+        }
+        else
+        {   if((PLdBs[ind]<minPL))
+        {   minPL=PLdBs[ind];}
+        }
+        }
         
-        if(PLdBs[ind]>maxPL)
-        {maxPL=PLdBs[ind];}
+        
+    }
+    if(PLdB_Plot)
+    {
+        maxPL=-999; //hardcoded for isolated wall simulation
+        minPL=999; //hardcoded for isolated wall simulation
+        for(int ind=1; ind< PLdBs.size(); ind++)
+        {   //PLdBs[ind]=PLdBs[ind]-0.7435;                  //this is hardcoded Pmax scale value for gac3 doubled
+            //PLdBs[ind]=PLdBs[ind]-77.3308;                  //this is hardcoded scale value for gac3 doubled PLdB
+            //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
+            PLdBs[ind]=PLdBs[ind]-103.6918;     //this subtracts the PLdB of the input waveform (halved)
+            if(PLdBs[ind]>maxPL)
+            {maxPL=PLdBs[ind];}
+            if(PLdBs[ind]<minPL)
+            {minPL=PLdBs[ind];}
+            
+        }
     }
     
-    minPL=maxPL;
-    
-    
-    //From before when we were plotting absolut PLdB    
-    for(int ind=1; ind< PLdBs.size(); ind++)
-    {   if(PLdB_Plot)
-    {   if(PLdBs[ind]<minPL)
-    {   minPL=PLdBs[ind];}
-    }
-    else
-    {   if((PLdBs[ind]<minPL))
-    {minPL=PLdBs[ind];}
-    }
-    }
+
     
     //                    for(int ind=0; ind< PLdBs.size(); ind++)
     //                    {   if((PLdBs[ind]<minPL))
@@ -208,7 +237,7 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
         
         fire3=maxPL;
         ice3=minPL;
-        if(PLdB_Plot)  
+        if(PLdB_Plot)
         {   fire2=maxPL/10;
             fire1=maxPL/100;
             ice2=minPL/100;
@@ -239,10 +268,10 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
     if (!fireNice) {
         colorLookupTable->SetTableRange(minPL, maxPL);
         //colorLookupTable->SetScaleToLog10 ();
-        colorLookupTable->SetHueRange(188.0/360,188.0/360);
+        colorLookupTable->SetHueRange(237.0/360,237.0/360);
         //colorLookupTable->SetHueRange(0,1);
-        colorLookupTable->SetSaturationRange(0.3,1.0);
-        colorLookupTable->SetValueRange(1.0,0.1);
+        colorLookupTable->SetSaturationRange(0.3,.90);
+        colorLookupTable->SetValueRange(1.0,0.4);
         colorLookupTable->SetAlphaRange(1.0,1.0);
         
         
@@ -257,9 +286,12 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
         //                    colorLookupTable->SetValueRange(1.0,.6); //0 is black
         
         if(PLdB_Plot)
-        {   colorLookupTable->SetScaleToLog10 ();
+        {   colorLookupTable->SetScaleToLog10();
         }
-        colorLookupTable->Build();    
+        else
+        {   colorLookupTable->SetScaleToLinear();
+        }
+        colorLookupTable->Build();
     }
     
     
@@ -416,13 +448,17 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
     {scalarBar->SetLookupTable( colorLookupTable ); }
     
     if(NumRefs_Plot)
-    {   scalarBar->SetTitle("# Of Audible Sources");}
+    {   scalarBar->SetTitle("# Of Audible Sources");
+        scalarBar->SetNumberOfLabels(maxPL+1);
+    }
     if(Pmax_Plot)
-    {   scalarBar->SetTitle("Pmax [psf]");}
+    {   scalarBar->SetTitle("Pmax [psf]");
+        scalarBar->SetNumberOfLabels(9);}
     if(PLdB_Plot)
-    {   scalarBar->SetTitle("Δ PLdB");}
+    {   scalarBar->SetTitle("Δ PLdB");
+        scalarBar->SetNumberOfLabels(9);}
     
-    scalarBar->SetNumberOfLabels(9);
+
     
     vtkSmartPointer<vtkTextProperty> scalarbartextprops =
     vtkSmartPointer<vtkTextProperty>::New() ;

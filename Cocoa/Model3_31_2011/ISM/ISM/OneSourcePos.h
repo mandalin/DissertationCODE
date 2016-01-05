@@ -99,6 +99,8 @@ void OneSourcePos(unsigned simnum_)
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
+    // Diffraction
+    bool BTMSIM=false;
     // Filtering
     bool dont_use_filtering=true;
     bool use_R_coeffs=false;
@@ -118,8 +120,8 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     
     //Plotting of Contours
-    bool Plot_Contour=false;
-    bool Save_Contour=false;
+    bool Plot_Contour=true;
+    bool Save_Contour=true;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
     bool NumRefs_Plot=true;
@@ -890,7 +892,11 @@ void OneSourcePos(unsigned simnum_)
     ////////END CHOSE SOURCE POSITIONS/////////
     
     ///Let's have a look
-       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
+    
+    //NumRefs Contours
+    //const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
+    
+
     
     //PLdB CONTOURS
     
@@ -899,12 +905,15 @@ void OneSourcePos(unsigned simnum_)
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/PLdB_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/PLdB_Contour_Output3.txt";
     
+    //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
+    
     //Pmax Contours
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/Blackbird_sim_0_noHPFing/Pmax_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/BlackBird_sim_37_noHPFing/Pmax_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/Pmax_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/Pmax_Contour_Output3.txt";
-    //
+    
+    //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
                 if(Plot_Contour)
                 {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot );
                 }
@@ -1035,7 +1044,9 @@ void OneSourcePos(unsigned simnum_)
         }
     }
     
-    
+
+    if(BTMSIM)
+    {
 
     /////////////////////////////////////
     ////      For Single Edge BTM      //
@@ -1091,55 +1102,29 @@ void OneSourcePos(unsigned simnum_)
     
     clock_t t;
     t = clock();
-    
-    //            //Corners 27 and 148 Two are equivalent
-    //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
-                Edge * TempSingleEdge;
-                TempSingleEdge = EdgeHead->next;
-                TempSingleEdge->Calculate_Solid_Angle();
-    //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
-    //
-    //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
-    //            TempSingleEdge.wall2ind=6;
-    //            TempSingleEdge.walls_along_edge.push_back(& planes[6]);
-    //            TempSingleEdge->Calculate_Solid_Angle();
-    //
-                //Find the Norm of One Wedge Face
-                position_vector surface1_norm;
-                surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
-    //
-    //            Edge * Ptr_To_Edge2Add;
-    //            Ptr_To_Edge2Add = &TempSingleEdge;
-    //            //Edge * EdgeHead;
-    //            EdgeHead=NULL;
-    //
-    //            TempSingleEdge.AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
-    //
-                double fsdiff=48000;
-    //            //
-    //            //    std::vector<int> viableplanes;
-    //            //    for(int planeInd=0;planeInd<121;planeInd++)
-    //            //    {
-    //            //        for(int cornInd=0; cornInd<planes[planeInd].corner_indices.size() ;cornInd++)
-    //            //        {  if(planes[planeInd].corner_indices[cornInd]==13)
-    //            //            {   viableplanes.push_back(planeInd);
-    //            //            }
-    //            //        }
-    //            //    }
-    //            //
-    
-                Which_Receiver=4;
-                Ppos.assign(Ppos_vector[Which_Receiver]);
-                TempSingleEdge->alpha_w=2*pi;
-    
-                OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+    Edge * TempSingleEdge;
+    TempSingleEdge = EdgeHead->next;
+    TempSingleEdge->Calculate_Solid_Angle();
+
+    //Find the Norm of One Wedge Face
+    position_vector surface1_norm;
+    surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+
+    double fsdiff=48000;
+
+
+    Which_Receiver=4;
+    Ppos.assign(Ppos_vector[Which_Receiver]);
+    TempSingleEdge->alpha_w=2*pi;
+
+    OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
     
     t = clock() - t;
     printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
     
     //
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    }
 
     ///////////////////////////////////
     //      For Single Edge UTD      //
