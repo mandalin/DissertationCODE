@@ -168,27 +168,19 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
          minPL=0;
     }
     if(Pmax_Plot)
-    {    maxPL=140.7781;//hardcoded for isolated wall simulation
-        for(int ind=0; ind< PLdBs.size(); ind++)
+    {   // maxPL=140.7781;//hardcoded for isolated wall simulation
+        maxPL=-999; //hardcoded for isolated wall simulation
+
+        for(int ind=1; ind< PLdBs.size(); ind++)
         {   //PLdBs[ind]=PLdBs[ind]-0.7435;                  //this is hardcoded Pmax scale value for gac3 doubled
             //PLdBs[ind]=PLdBs[ind]-77.3308;                  //this is hardcoded scale value for gac3 doubled PLdB
             //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
-            PLdBs[ind]=PLdBs[ind]-36.0135*2;     //this subtracts the maximum pressure of the input waveform (not halved)
+            PLdBs[ind]=PLdBs[ind]/47.88;     //This converts to PSF
+            if(PLdBs[ind]>maxPL)
+            {maxPL=PLdBs[ind];}
             
-            
         }
-        //From before when we were plotting absolut PLdB
-        for(int ind=0; ind< PLdBs.size(); ind++)
-        {   if(PLdB_Plot)
-        {   if(PLdBs[ind]<minPL)
-        {   minPL=PLdBs[ind];}
-        }
-        else
-        {   if((PLdBs[ind]<minPL))
-        {   minPL=PLdBs[ind];}
-        }
-        }
-        
+                minPL=0; //hardcoded for isolated wall simulation
         
     }
     if(PLdB_Plot)

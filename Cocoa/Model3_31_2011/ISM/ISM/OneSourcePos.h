@@ -123,8 +123,8 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_Contour=true;
     bool Save_Contour=true;
     bool PldB_Plot=false;
-    bool Pmax_Plot=false;
-    bool NumRefs_Plot=true;
+    bool Pmax_Plot=true;
+    bool NumRefs_Plot=false;
     
     double Temperature;
     
@@ -905,7 +905,7 @@ void OneSourcePos(unsigned simnum_)
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/PLdB_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/PLdB_Contour_Output3.txt";
     
-    //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
+           const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
     
     //Pmax Contours
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/Blackbird_sim_0_noHPFing/Pmax_Contour_Output3.txt";
@@ -913,7 +913,8 @@ void OneSourcePos(unsigned simnum_)
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/Pmax_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/Pmax_Contour_Output3.txt";
     
-    //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
+    //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/Pmax_Contour_Wall_1.txt";
+    
                 if(Plot_Contour)
                 {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot );
                 }
