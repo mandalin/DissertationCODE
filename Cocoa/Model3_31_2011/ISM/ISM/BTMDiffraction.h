@@ -196,11 +196,22 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
     Prop_dist=magnitude(src_to_apex);
     
     incident_pressure_at_apex=(rho*S/(4*pi*Prop_dist));
+    
+    /////////////Plane Wave Scaling to Ppos//////////////////
+    double incident_pressure_at_ppos,Prop_dist_ppos;
+    position_vector src_to_ppos;
+    
+    src_to_ppos=sub(Ppos,Qpos);
+    Prop_dist_ppos=magnitude(src_to_ppos);
+    
+    incident_pressure_at_ppos=(rho*S/(4*pi*Prop_dist_ppos));
+    
+    
     /////////////////////////////////////////////////////////
     
     double A,FirstSamp;
-    A= S*rho*Beta/(4*pi*theta_w*std::sqrt(2*least_time*ro*r));
-    FirstSamp=A/incident_pressure_at_apex;
+    A= S*rho*Beta/(4*pi*theta_w*std::sqrt(2*least_time*ro*r))/incident_pressure_at_ppos;
+    FirstSamp=A/incident_pressure_at_ppos;
     
     
     FILE * writeIR;
@@ -209,8 +220,8 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
     
     if(writeIR)
     {
-        fprintf(writeIR,"%f \n",diffraction_delay  );
-        fprintf(writeIR,"%f \n\n",incident_pressure_at_apex  );
+        fprintf(writeIR,"%f = diffraction delay\n",diffraction_delay  );
+        fprintf(writeIR,"%f = incident pressure at Ppos for Source Strength =1\n\n",incident_pressure_at_ppos  );
         
         //  fputs ("y=[",write);
         for(unsigned sample=0; sample<Ndiff; sample++)

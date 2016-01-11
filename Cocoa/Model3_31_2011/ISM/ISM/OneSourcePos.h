@@ -34,14 +34,15 @@ void OneSourcePos(unsigned simnum_)
     double	radius=350;         //radius of simulation domain
     
     // Where to Store Outputs
-    //const char* directory = "/Users/mandalin/Desktop/BulkXcodeSims/ImpulseResponses/";
+
     //const char* directory = "/Volumes/WORKSPACE/InProgress/";
     //const char* directory = "/Volumes/G-DRIVE/InProgress/";
     //const char* directory = "/Volumes/PSU-WORKSPACE/InProgress2/"
     
     char * directory= new char[1000];
     //strcat(directory,"/Volumes/WORKSPACE-TWO/MontrealWork/SimB_Mic106/");
-    strcat(directory,"/Volumes/WORKSPACE-ONE/InProgress/");
+    //strcat(directory,"/Volumes/WORKSPACE-ONE/InProgress/");
+    strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/BTM/");
     
     //    bool dont_use_filtering=false;
     //    bool use_R_coeffs=false;
@@ -100,7 +101,7 @@ void OneSourcePos(unsigned simnum_)
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
     // Diffraction
-    bool BTMSIM=false;
+    bool BTMSIM=true;
     // Filtering
     bool dont_use_filtering=true;
     bool use_R_coeffs=false;
@@ -120,10 +121,10 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     
     //Plotting of Contours
-    bool Plot_Contour=true;
-    bool Save_Contour=true;
+    bool Plot_Contour=false;
+    bool Save_Contour=false;
     bool PldB_Plot=false;
-    bool Pmax_Plot=true;
+    bool Pmax_Plot=false;
     bool NumRefs_Plot=false;
     
     double Temperature;
@@ -894,7 +895,7 @@ void OneSourcePos(unsigned simnum_)
     ///Let's have a look
     
     //NumRefs Contours
-    //const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
+    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
     
 
     
@@ -905,7 +906,7 @@ void OneSourcePos(unsigned simnum_)
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_1_noHPFing/PLdB_Contour_Output3.txt";
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/L_Shape_sim_2_noHPFing/PLdB_Contour_Output3.txt";
     
-           const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
+     //      const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/PLdB_Contour_Wall_1.txt";
     
     //Pmax Contours
     //const char * contourFileName="/Users/mandalin/Desktop/Dissertation_PLdB_PostProcessing/PLdB Contours/Blackbird_sim_0_noHPFing/Pmax_Contour_Output3.txt";
@@ -941,65 +942,7 @@ void OneSourcePos(unsigned simnum_)
     position_vector Ppos;
     Ppos.assign(Ppos_vector[Which_Receiver]);
     
-    //////////////////////////////////////////////////////
-    //          Prepare to Write File                   //
-    //////////////////////////////////////////////////////
-    
-    int Which_IR__=Which_Receiver;
-    //Write A file to hoLf the information of source position
-    char* whole_diff_filename_IR = new char[500];
-    // char * arrivalaz= new char[500];
-    // char * arrivalel= new char[500];
-    // char * sim_number= new char[500];
-    char * ir_number= new char[500];
-    
-    char * Ppos_x= new char[500];
-    char * Ppos_y= new char[500];
-    char * Ppos_z= new char[500];
-    
-    // snprintf(arrivalaz, 79, "%f", phi__);
-    // snprintf(arrivalel, 79, "%f", theta_i__);
-    snprintf(ir_number, 79, "%i", Which_IR__);
-    //  snprintf(sim_number, 79, "%i", Which_SIM__);
-    
-    snprintf(Ppos_x, 79, "%f", Ppos.x);
-    snprintf(Ppos_y, 79, "%f", Ppos.y);
-    snprintf(Ppos_z, 79, "%f", Ppos.z);
-    
-    strcat(whole_diff_filename_IR,directory);
-    //strcat(whole_filename_IR,"_");
-    strcat(whole_diff_filename_IR,simulation_name);
-    strcat(whole_diff_filename_IR,"_BTM_");               ///FOR BTM
-    //strcat(whole_diff_filename_IR,"_UTD_");                 ///FOR UTD
-    strcat(whole_diff_filename_IR,sim_number);
-    strcat(whole_diff_filename_IR,"_");
-    
-    //lets append zeros to the simulation number
-    
-    int numdigets= strlen(ir_number);
-    char* zeros=new char[10];
-    
-    zeros[0] = '\0';
-    
-    for(int addzeros=7-numdigets; addzeros>0; addzeros--)
-    {
-        strcat(zeros,"0");
-    }
-    strcat(zeros,ir_number);
-    
-    strcat(whole_diff_filename_IR,zeros);
-    strcat(whole_diff_filename_IR,"_IR_");
-    strcat(whole_diff_filename_IR,arrivalaz);
-    strcat(whole_diff_filename_IR,"_az_");
-    strcat(whole_diff_filename_IR,arrivalel);
-    strcat(whole_diff_filename_IR,"_el_Ppos_");
-    strcat(whole_diff_filename_IR,Ppos_x);
-    strcat(whole_diff_filename_IR,"i_");
-    strcat(whole_diff_filename_IR,Ppos_y);
-    strcat(whole_diff_filename_IR,"j_");
-    strcat(whole_diff_filename_IR,Ppos_z);
-    strcat(whole_diff_filename_IR,"k.txt");
-    std::cout<<whole_diff_filename_IR<<std::endl;
+   
     
     //////////////////////////////////////////////////////
     //   Amass A collection of edges from all planes    //
@@ -1110,16 +1053,80 @@ void OneSourcePos(unsigned simnum_)
     //Find the Norm of One Wedge Face
     position_vector surface1_norm;
     surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+    TempSingleEdge->alpha_w=2*pi;
 
     double fsdiff=48000;
 
 
     Which_Receiver=4;
-    Ppos.assign(Ppos_vector[Which_Receiver]);
-    TempSingleEdge->alpha_w=2*pi;
-
-    OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
-    
+        
+    for(Which_Receiver=0; Which_Receiver<=Ppos_vector.size(); Which_Receiver++)
+    {
+        
+        //////////////////////////////////////////////////////
+        //          Prepare to Write File                   //
+        //////////////////////////////////////////////////////
+        
+        int Which_IR__=Which_Receiver;
+        //Write A file to hoLf the information of source position
+        char* whole_diff_filename_IR = new char[500];
+        // char * arrivalaz= new char[500];
+        // char * arrivalel= new char[500];
+        // char * sim_number= new char[500];
+        char * ir_number= new char[500];
+        
+        char * Ppos_x= new char[500];
+        char * Ppos_y= new char[500];
+        char * Ppos_z= new char[500];
+        
+        // snprintf(arrivalaz, 79, "%f", phi__);
+        // snprintf(arrivalel, 79, "%f", theta_i__);
+        snprintf(ir_number, 79, "%i", Which_IR__);
+        //  snprintf(sim_number, 79, "%i", Which_SIM__);
+        
+        snprintf(Ppos_x, 79, "%f", Ppos.x);
+        snprintf(Ppos_y, 79, "%f", Ppos.y);
+        snprintf(Ppos_z, 79, "%f", Ppos.z);
+        
+        strcat(whole_diff_filename_IR,directory);
+        //strcat(whole_filename_IR,"_");
+        strcat(whole_diff_filename_IR,simulation_name);
+        strcat(whole_diff_filename_IR,"_BTM_");               ///FOR BTM
+        //strcat(whole_diff_filename_IR,"_UTD_");                 ///FOR UTD
+        strcat(whole_diff_filename_IR,sim_number);
+        strcat(whole_diff_filename_IR,"_");
+        
+        //lets append zeros to the simulation number
+        
+        int numdigets= strlen(ir_number);
+        char* zeros=new char[10];
+        
+        zeros[0] = '\0';
+        
+        for(int addzeros=7-numdigets; addzeros>0; addzeros--)
+        {
+            strcat(zeros,"0");
+        }
+        strcat(zeros,ir_number);
+        
+        strcat(whole_diff_filename_IR,zeros);
+        strcat(whole_diff_filename_IR,"_IR_");
+        strcat(whole_diff_filename_IR,arrivalaz);
+        strcat(whole_diff_filename_IR,"_az_");
+        strcat(whole_diff_filename_IR,arrivalel);
+        strcat(whole_diff_filename_IR,"_el_Ppos_");
+        strcat(whole_diff_filename_IR,Ppos_x);
+        strcat(whole_diff_filename_IR,"i_");
+        strcat(whole_diff_filename_IR,Ppos_y);
+        strcat(whole_diff_filename_IR,"j_");
+        strcat(whole_diff_filename_IR,Ppos_z);
+        strcat(whole_diff_filename_IR,"k.txt");
+        std::cout<<whole_diff_filename_IR<<std::endl;
+        
+        
+        Ppos.assign(Ppos_vector[Which_Receiver]);
+        OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+    }
     t = clock() - t;
     printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
     

@@ -191,7 +191,9 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
         {   //PLdBs[ind]=PLdBs[ind]-0.7435;                  //this is hardcoded Pmax scale value for gac3 doubled
             //PLdBs[ind]=PLdBs[ind]-77.3308;                  //this is hardcoded scale value for gac3 doubled PLdB
             //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
-            PLdBs[ind]=PLdBs[ind]-103.6918;     //this subtracts the PLdB of the input waveform (halved)
+            //PLdBs[ind]=PLdBs[ind]-103.6918;     // Wall Input this subtracts the PLdB of the input waveform (halved) 109.8323
+            
+            PLdBs[ind]=PLdBs[ind]-109.8323;     //Wall Input this subtracts the PLdB of the input waveform (not halved)109.8323
             if(PLdBs[ind]>maxPL)
             {maxPL=PLdBs[ind];}
             if(PLdBs[ind]<minPL)
