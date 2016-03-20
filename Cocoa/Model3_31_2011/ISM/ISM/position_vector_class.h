@@ -13,8 +13,10 @@ public:
     double x=NaN;
     double y=NaN;
     double z=NaN;
+    
 	position_vector(){ x=NaN; y=NaN; z=NaN; v.clear(); v.push_back(x); v.push_back(y); v.push_back(z);};
-	position_vector(long double xpt, long double ypt, long double zpt){ x=xpt; y=ypt; z=zpt; v.clear(); v.push_back(x); v.push_back(y); v.push_back(z);};
+	
+    position_vector(long double xpt, long double ypt, long double zpt){ x=xpt; y=ypt; z=zpt; v.clear(); v.push_back(x); v.push_back(y); v.push_back(z);};
     
     
 	void assign ( double xval,  double yval,  double zval)

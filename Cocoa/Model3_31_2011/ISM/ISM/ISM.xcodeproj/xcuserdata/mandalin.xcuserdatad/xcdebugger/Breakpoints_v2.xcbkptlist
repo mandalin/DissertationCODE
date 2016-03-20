@@ -22,7 +22,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneSourcePos.h"
@@ -35,7 +35,7 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OneSourcePos(unsigned int)"
@@ -49,7 +49,7 @@
                   offsetFromSymbolStart = "33714">
                </Location>
                <Location
-                  shouldBeEnabled = "Yes"
+                  shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "OneSourcePos(unsigned int)"
@@ -68,7 +68,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneSourcePos.h"
@@ -84,7 +84,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneSourcePos.h"
@@ -94,6 +94,384 @@
             startingLineNumber = "924"
             endingLineNumber = "924"
             landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480145502.214796"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "987"
+            endingLineNumber = "987"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1659"
+            endingLineNumber = "1659"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1662"
+            endingLineNumber = "1662"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1661"
+            endingLineNumber = "1661"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "source.h"
+            timestampString = "480146117.362352"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "print(std::vector&lt;source&gt; sources, std::vector&lt;wall&gt; planes, int num_orig_planes)"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "source::print(std::vector&lt;source, std::allocator&lt;source&gt; &gt;, std::vector&lt;wall, std::allocator&lt;wall&gt; &gt;, int)"
+                  moduleName = "ISM"
+                  urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/source.h"
+                  timestampString = "480150374.537932"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "838">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "source::print(std::vector&lt;source, std::allocator&lt;source&gt; &gt;, std::vector&lt;wall, std::allocator&lt;wall&gt; &gt;, int)"
+                  moduleName = "ISM"
+                  urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/source.h"
+                  timestampString = "480150374.538148"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "857">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "source::print(std::vector&lt;source, std::allocator&lt;source&gt; &gt;, std::vector&lt;wall, std::allocator&lt;wall&gt; &gt;, int)"
+                  moduleName = "ISM"
+                  urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/source.h"
+                  timestampString = "480150374.538265"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "866">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "source::print(std::vector&lt;source, std::allocator&lt;source&gt; &gt;, std::vector&lt;wall, std::allocator&lt;wall&gt; &gt;, int)"
+                  moduleName = "ISM"
+                  urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/source.h"
+                  timestampString = "480150374.538371"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "115"
+                  endingLineNumber = "115"
+                  offsetFromSymbolStart = "2361">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480146984.08804"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1314"
+            endingLineNumber = "1314"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480146989.689145"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1537"
+            endingLineNumber = "1537"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480146992.737972"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1554"
+            endingLineNumber = "1554"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480146998.936896"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1564"
+            endingLineNumber = "1564"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1602"
+            endingLineNumber = "1602"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IRsFromSources.h"
+            timestampString = "480152928.635789"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "IRsFromSources(position_vector Ppos__, std::vector&lt;unsigned&gt; LegalSourceIndices__, std::vector&lt;source&gt; sources__, std::vector&lt;wall&gt; planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IRsFromSources.h"
+            timestampString = "480151780.375403"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "IRsFromSources(position_vector Ppos__, std::vector&lt;unsigned&gt; LegalSourceIndices__, std::vector&lt;source&gt; sources__, std::vector&lt;wall&gt; planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ReadInSourceFile.h"
+            timestampString = "480152433.945618"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "ReadInSourceFile(char * Directory, const char * filename , double &amp; az, double &amp; el, double &amp; Temperature)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IsSourceEffective.h"
+            timestampString = "480153179.316713"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "IsSourceEffective (std::vector&lt;source&gt; sources /*sources*/, std::vector&lt;wall&gt; walls /*planes*/, int mother_q_i /*mother_source_index*/, position_vector Ppos, int num_original_planes)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1676"
+            endingLineNumber = "1676"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IRsFromSources_1file.h"
+            timestampString = "480153424.506203"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "IRsFromSources_1file( FILE * writeIR, position_vector Ppos__, std::vector&lt;unsigned&gt; LegalSourceIndices__, std::vector&lt;source&gt; sources__, std::vector&lt;wall&gt; planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IRsFromSources.h"
+            timestampString = "480153427.9932"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "IRsFromSources(position_vector Ppos__, std::vector&lt;unsigned&gt; LegalSourceIndices__, std::vector&lt;source&gt; sources__, std::vector&lt;wall&gt; planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480154587.383492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1594"
+            endingLineNumber = "1594"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IRsFromSources.h"
+            timestampString = "480153723.525105"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "IRsFromSources(position_vector Ppos__, std::vector&lt;unsigned&gt; LegalSourceIndices__, std::vector&lt;source&gt; sources__, std::vector&lt;wall&gt; planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "pointvisible.h"
+            timestampString = "480154102.620896"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "pointvisible(position_vector source_position,position_vector receiver_position,wall::wall ShadingPlane)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

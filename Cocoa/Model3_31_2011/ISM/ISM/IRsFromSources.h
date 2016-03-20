@@ -9,6 +9,8 @@
 #ifndef ISM_IRsFromsources___h
 #define ISM_IRsFromsources___h
 
+#include <stdio.h>
+
 bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceIndices__, std::vector<source> sources__, std::vector<wall> planes__, unsigned num_original_walls__, double phi__, double theta_i__, unsigned Which_SIM__, unsigned Which_IR__, double co__, double s_, bool dont_use_filtering__, bool use_R_coeffs__, bool use_R_coeffs_and_Disk_Approx__, char* simulation_name, const char* directory)
 
 
@@ -29,7 +31,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
         std::cout<<"Source # "<<LegalSourceIndices__[i]<<std::endl;
         
         temp_audible=IsSourceEffective (sources__ /*sources__*/, planes__ /*planes__*/,LegalSourceIndices__[i], Ppos__, num_original_walls__);
-        
+        std::cout<<"temp_audible ="<<temp_audible<<std::endl;
         sources__[LegalSourceIndices__[i]].audible=temp_audible;
         
         if(temp_audible)
@@ -39,6 +41,7 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
     
     
     //Prints Effective Sources
+    std::cout<<"~~~~~~~~~~~~~~Print Effective sources~~~~~~~~~~~~~~"<<std::endl;
     for(int effective_ind=0 ; effective_ind < EffectiveSourceIndices.size() ; effective_ind++)
     {   sources__[EffectiveSourceIndices[effective_ind]].print(sources__,planes__,num_original_walls__);
         
@@ -87,6 +90,10 @@ bool IRsFromSources(position_vector Ppos__, std::vector<unsigned> LegalSourceInd
         fprintf(write, "\n\n Audible Sources for IR number %i \n", Which_IR__);
         for(int sourceNumber=0; sourceNumber<EffectiveSourceIndices.size(); sourceNumber++)
         {
+            if(sourceNumber==0)
+            {  cout<<"\nBreakHere\n";
+            }
+
             fprintf(write, " %i", EffectiveSourceIndices[sourceNumber]);
             
         }

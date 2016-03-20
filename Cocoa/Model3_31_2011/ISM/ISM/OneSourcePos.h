@@ -41,7 +41,7 @@ void OneSourcePos(unsigned simnum_)
     
     char * directory= new char[1000];
     //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
-    strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/BTM/");
+    strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //    bool dont_use_filtering=false;
     //    bool use_R_coeffs=false;
@@ -91,7 +91,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=true; //must be true for plotting a contour
+    bool SubSampleSurface=false; //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
@@ -112,16 +112,16 @@ void OneSourcePos(unsigned simnum_)
     bool Isolated_Wall=true;
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=true;
+    bool plot_geom=false;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
-    bool Plot_MicPos=true;
+    bool Plot_MicPos=false;
     
     //Plotting of Contours
-    bool Plot_Contour=true;
+    bool Plot_Contour=false;
     bool Save_Contour=false;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
-    bool NumRefs_Plot=true;
+    bool NumRefs_Plot=false;
     
     double Temperature;
     
@@ -1586,8 +1586,7 @@ void OneSourcePos(unsigned simnum_)
         snprintf(sim_number_, 200, "%i", Which_Simulation);
         
         
-        //for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)// to do specular IRS for all receiver positions
-        for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
+        for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)// to do specular IRS for all receiver positions
         {  PposFinal=Ppos_vector[simulation_iter];
             
             printf("------------Simulation %i------------",simulation_iter);
@@ -1654,7 +1653,8 @@ if(!write_many_files)
 
 
     char* zeros=new char[10];
-    for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
+   // for(unsigned simulation_iter=0; simulation_iter<Ppos_vector.size(); simulation_iter++)
+    for(unsigned simulation_iter=0; simulation_iter<initial_microphone_positions; simulation_iter++)
     {
                 PposFinal=Ppos_vector[simulation_iter];
 
@@ -1674,6 +1674,7 @@ if(!write_many_files)
         fprintf(writeIR,"%s\t%f\t%f\t%f\n",zeros,PposFinal.x, PposFinal.y, PposFinal.z);
 
         successful=IRsFromSources_1file(writeIR, PposFinal, LegalSourceIndices, sources,  planes, num_original_walls,  az,  el,Which_Simulation,  simulation_iter,  co,  s,  dont_use_filtering,  use_R_coeffs,  use_R_coeffs_and_Disk_Approx,temp_simulation_name, directory);
+
 
         std::cout<<temp_simulation_name<<" Position "<<simulation_iter<<" was successful"<<std::endl;
     }
