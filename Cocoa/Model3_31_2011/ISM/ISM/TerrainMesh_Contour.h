@@ -12,7 +12,7 @@
 #include <strings.h>
 
 
-void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positions, std::vector<unsigned> points_per_wall, double resolution, const char * contour_text_file_name, char * simulation_name_full, bool save_contour, bool NumRefs_Plot, bool Pmax_Plot, bool PLdB_Plot)
+void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positions, std::vector<unsigned> points_per_wall, double resolution, const char * contour_text_file_name, char * simulation_name_full, bool save_contour, bool NumRefs_Plot, bool Pmax_Plot, bool PLdB_Plot, std::vector<position_vector>  Ppos_vector ,bool plot_microphones)
 
 // void TerrainMesh() takes as an input the walls structure, creates a vtkUnstructuredGrid (the same as exists when we plot in plot_SGR_Orientation() and converts it into vtkPolyData);
 
@@ -685,6 +685,41 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
         renderer->AddActor(actor);
         
     }
+    
+    
+    int NumPoints=initial_microphone_positions;
+    
+    if(plot_microphones)
+    {
+        //Add a sphere at the point
+        vtkSphereSource ** sphere;
+        sphere= new vtkSphereSource *[NumPoints];
+        
+        vtkPolyDataMapper ** SphereMap;
+        SphereMap= new vtkPolyDataMapper *[NumPoints];
+        
+        vtkActor ** SphereActor;
+        SphereActor= new vtkActor *[NumPoints];
+        
+        for(int i=0; i<initial_microphone_positions; i++) //itterates through receivers
+        {
+            sphere[i]= vtkSphereSource::New();
+            sphere[i]->SetRadius(1); //this used to be 1
+            sphere[i]->SetThetaResolution(20);
+            sphere[i]->SetPhiResolution(20);
+            sphere[i]->SetCenter( Ppos_vector[i].x, Ppos_vector[i].y,   Ppos_vector[i].z );
+            //sphere->SetCenter(36.45,26.17,1.2);
+            SphereMap[i] = vtkPolyDataMapper::New();
+            SphereMap[i]->SetInput(sphere[i]->GetOutput());
+            //actor coordinates geometry, properties, transformation
+            SphereActor[i] = vtkActor::New();
+            SphereActor[i]->GetProperty()->SetColor(1,0,0);
+            SphereActor[i]->SetMapper(SphereMap[i]);
+            
+            renderer->AddActor(SphereActor[i]);
+        }
+    }
+    
     ////////////////////////////
     //    
     //    //Add a number where the point we are following is. 

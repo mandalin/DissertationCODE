@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneSourcePos.h"
-            timestampString = "473718086.499191"
+            timestampString = "480144703.61296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1127"
-            endingLineNumber = "1127"
+            startingLineNumber = "1120"
+            endingLineNumber = "1120"
             landmarkName = "OneSourcePos(unsigned simnum_)"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "OneSourcePos.h"
-            timestampString = "473718086.499191"
+            timestampString = "480144703.61296"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "1132"
-            endingLineNumber = "1132"
+            startingLineNumber = "1125"
+            endingLineNumber = "1125"
             landmarkName = "OneSourcePos(unsigned simnum_)"
             landmarkType = "7">
             <Locations>
@@ -40,14 +40,13 @@
                   continueAfterRunningActions = "No"
                   symbolName = "OneSourcePos(unsigned int)"
                   moduleName = "ISM"
-                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/OneSourcePos.h"
-                  timestampString = "473718088.039158"
+                  timestampString = "480144703.982156"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1135"
-                  endingLineNumber = "1135"
-                  offsetFromSymbolStart = "34361">
+                  startingLineNumber = "1128"
+                  endingLineNumber = "1128"
+                  offsetFromSymbolStart = "33714">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -55,16 +54,47 @@
                   continueAfterRunningActions = "No"
                   symbolName = "OneSourcePos(unsigned int)"
                   moduleName = "ISM"
-                  usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mandalin/Desktop/Sort%20Me%20Now/DissertationCODE/Cocoa/Model3_31_2011/ISM/ISM/OneSourcePos.h"
-                  timestampString = "473718088.039294"
+                  timestampString = "480144703.982445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "1135"
-                  endingLineNumber = "1135"
-                  offsetFromSymbolStart = "34378">
+                  startingLineNumber = "1128"
+                  endingLineNumber = "1128"
+                  offsetFromSymbolStart = "33731">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480144703.61296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1167"
+            endingLineNumber = "1167"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "OneSourcePos.h"
+            timestampString = "480144703.61296"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "924"
+            endingLineNumber = "924"
+            landmarkName = "OneSourcePos(unsigned simnum_)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

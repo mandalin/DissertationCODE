@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
-		8D11072D0486CEB800E47090 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; settings = {ATTRIBUTES = (); COMPILER_FLAGS = "-ffloat-store -Wall -Wextra -fexcess-precision=standard -O0"; }; };
+		8D11072D0486CEB800E47090 /* main.mm in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.mm */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		C51649221342716300D2824F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C51649211342716300D2824F /* IOKit.framework */; };
 		C52FF28A13414233008066D1 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C52FF28913414233008066D1 /* OpenGL.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -819,6 +819,7 @@
 					"\"$(SRCROOT)/../../../../VTK/VTK-Bin/lib/vtk-5.6\"",
 					/usr/local/lib,
 				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = /usr/local/lib;
 				"OTHER_LDFLAGS[arch=*]" = (
 					"\"$(SRCROOT)/../../../../boost_1_45_0/build64/boost/bin.v2/libs/math/build/darwin-4.2.1/release/address-model-64/architecture-x86/link-static/threading-multi/sph_neumann.o\"",
@@ -905,6 +906,7 @@
 					"\"$(SRCROOT)/boost/bin.v2/libs/wave/build/darwin-4.0.1/release/link-static/threading-multi\"",
 					/usr/local/lib,
 				);
+				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = (
 					/Users/mandalin/Desktop/DissertationCODE/Cocoa/Model3_31_2011/ISM,
 					/usr/local/lib,
@@ -974,6 +976,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_C_LANGUAGE_STANDARD = c11;
+				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_VERSION = "";
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

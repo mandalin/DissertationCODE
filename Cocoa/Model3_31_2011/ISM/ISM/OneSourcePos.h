@@ -40,8 +40,7 @@ void OneSourcePos(unsigned simnum_)
     //const char* directory = "/Volumes/PSU-WORKSPACE/InProgress2/"
     
     char * directory= new char[1000];
-    //strcat(directory,"/Volumes/WORKSPACE-TWO/MontrealWork/SimB_Mic106/");
-    //strcat(directory,"/Volumes/WORKSPACE-ONE/InProgress/");
+    //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
     strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/BTM/");
     
     //    bool dont_use_filtering=false;
@@ -82,10 +81,6 @@ void OneSourcePos(unsigned simnum_)
     //
     //
     
-    
-    
-    
-    
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
     strcat(directory,Which_Simulation_);
@@ -101,7 +96,7 @@ void OneSourcePos(unsigned simnum_)
     bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
     
     // Diffraction
-    bool BTMSIM=true;
+    bool BTMSIM=false;
     // Filtering
     bool dont_use_filtering=true;
     bool use_R_coeffs=false;
@@ -117,15 +112,16 @@ void OneSourcePos(unsigned simnum_)
     bool Isolated_Wall=true;
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=false;
+    bool plot_geom=true;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
+    bool Plot_MicPos=true;
     
     //Plotting of Contours
-    bool Plot_Contour=false;
+    bool Plot_Contour=true;
     bool Save_Contour=false;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
-    bool NumRefs_Plot=false;
+    bool NumRefs_Plot=true;
     
     double Temperature;
     
@@ -895,7 +891,7 @@ void OneSourcePos(unsigned simnum_)
     ///Let's have a look
     
     //NumRefs Contours
-    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/NumRefs_Contour_Wall_1.txt";
+    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/DissertationPostProcessing/Contours/Wall/Specular/1/NumRefs_Contour_Wall_Specular_1.txt";
     
 
     
@@ -917,7 +913,7 @@ void OneSourcePos(unsigned simnum_)
     //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/Pmax_Contour_Wall_1.txt";
     
                 if(Plot_Contour)
-                {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot );
+                {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot, Ppos_vector , Plot_MicPos);
                 }
     
     //    //TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourPmaxFileName,0);
@@ -1056,9 +1052,6 @@ void OneSourcePos(unsigned simnum_)
     TempSingleEdge->alpha_w=2*pi;
 
     double fsdiff=48000;
-
-
-    Which_Receiver=4;
         
     for(Which_Receiver=0; Which_Receiver<=Ppos_vector.size(); Which_Receiver++)
     {
