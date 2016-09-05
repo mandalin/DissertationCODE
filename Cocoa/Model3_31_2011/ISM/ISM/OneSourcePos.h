@@ -33,53 +33,24 @@ void OneSourcePos(unsigned simnum_)
     double s=5;                 //%seconds of reflections/post boom noise
     double	radius=350;         //radius of simulation domain
     
+    
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Simulation Settings   //
+    //                          //
+    //                          //
+    //////////////////////////////
+    
     // Where to Store Outputs
-
+    
     //const char* directory = "/Volumes/WORKSPACE/InProgress/";
     //const char* directory = "/Volumes/G-DRIVE/InProgress/";
     //const char* directory = "/Volumes/PSU-WORKSPACE/InProgress2/"
+    //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
     
     char * directory= new char[1000];
-    //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
     strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
-    
-    //    bool dont_use_filtering=false;
-    //    bool use_R_coeffs=false;
-    //    bool use_R_coeffs_and_Disk_Approx=true;
-    
-    //strcat(directory,"/Users/mandalin/Desktop/Xcode Output/CompleteRoof -Unfiltered-rooffix/");
-    //    bool dont_use_filtering=true;
-    //    bool use_R_coeffs=false;
-    //    bool use_R_coeffs_and_Disk_Approx=false;
-    
-    
-    
-    //    FILE * write;
-    //
-    //
-    //    write = fopen ("/Users/mandalin/Desktop/Xcode Output/CompleteRoof -Filtered-rooffix/testfile","w");
-    //
-    //    if(write)
-    //    {
-    //        fprintf(write, "Test");
-    //    }
-    
-    //    bool LoadSimulation=true;
-    //    const char * SimulationFilename="Blackbird_sim__2_sources_62.209000 az_10.060000 el.txt";
-    //
-    //    std::vector <source> SourcesLoaded;
-    //    double az_loaded, el_loaded, Temperature_loaded;
-    //
-    //
-    //    if(LoadSimulation)
-    //    {
-    //        SourcesLoaded = ReadInSourceFile(directory, SimulationFilename,az_loaded, el_loaded, Temperature_loaded);
-    //    }
-    //
-    //
-    //
-    //
-    //
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -91,9 +62,10 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=false; //must be true for plotting a contour
+    bool SubSampleSurface=true;             //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
-    bool OnlyGroundPlanesSubsampled=true; //must add ground plane list to this. If SubSampleSurface=false, this var is of no consequence, no subsampling occurs.
+    bool OnlyGroundPlanesSubsampled=true;   //must add ground plane list to this. If SubSampleSurface=false,
+                                            //this var is of no      consequence, no subsampling occurs.
     
     // Diffraction
     bool BTMSIM=false;
@@ -125,13 +97,14 @@ void OneSourcePos(unsigned simnum_)
     
     double Temperature;
     
-    //
-    //
-    //////////////END PRESETS//////////////
+    //////////////////////////////
+    //                          //
+    //                          //
+    //   Geometry Definitions   //
+    //                          //
+    //                          //
+    //////////////////////////////
     
-    ///////////CHOSE GEOMETRY///////////
-    //
-    //
     double mPERft=.3048;
     double mPERin=.0245;
     position_vector Ppos1;
@@ -487,8 +460,13 @@ void OneSourcePos(unsigned simnum_)
     }
     
     
-    //
-    ///////////END CHOSE GEOMETRY///////////
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Organize Geometry     //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     //push unique corners into static member of planes structure
     planes[0].unique_corners=unique_corners_output;
@@ -501,9 +479,13 @@ void OneSourcePos(unsigned simnum_)
     int num_original_walls=planes.size();
     
     
-    ////////CHOSE Receiver Position(s)/////////
-    //
-    //
+    //////////////////////////////
+    //                          //
+    //                          //
+    //  Receiver Position Def.  //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     ///SET Subsample Surface, number of points per meter squared
     std::vector<position_vector> temp_sample_points;
@@ -590,14 +572,13 @@ void OneSourcePos(unsigned simnum_)
         std::cout<<"Number of Points in Plane "<<ground_planes[plane_indices]<<": "<<num_points_in_plane_mapping[plane_indices]<<std::endl;
     }
     
-    //
-    ////
-    ////x
-    ////////END CHOSE Receiver Position(s)/////////
-    
-    
-    
-    ////////CHOSE SOURCE POSITIONS/////////
+    //////////////////////////////
+    //                          //
+    //                          //
+    //   Source Position Def.   //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     //double M=1.4;
     //double mu=asin(1/M)*(180/pi);  //%downstream mach angle, in degrees
@@ -822,11 +803,14 @@ void OneSourcePos(unsigned simnum_)
         Qpos.assign(r*cos(theta_i*(pi/180))*sin(phi*(pi/180)),r*sin(theta_i*(pi/180))*sin(phi*(pi/180)),r*cos(phi*(pi/180)));
     }
         
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Output File Names     //
+    //                          //
+    //                          //
+    //////////////////////////////
     
-        
-        
-    
-    ////////Make Filename stuff
     unsigned Which_Receiver = 1;
     
     char* fullsimulation_name = new char[500];
@@ -886,9 +870,14 @@ void OneSourcePos(unsigned simnum_)
     strcat(fullsimulation_name,"_el_");
     
     
-    ////////END CHOSE SOURCE POSITIONS/////////
-    
-    ///Let's have a look
+    //////////////////////////////
+    //                          //
+    //                          //
+    //      View a Contour      //
+    //  Completed Previously    //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     //NumRefs Contours
     const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/DissertationPostProcessing/Contours/Wall/Specular/1/NumRefs_Contour_Wall_Specular_1.txt";
@@ -912,23 +901,23 @@ void OneSourcePos(unsigned simnum_)
     
     //       const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/Dissertation_PLdB_PostProcessing/Contours/Wall_sim_0_noHPFing/Pmax_Contour_Wall_1.txt";
     
-                if(Plot_Contour)
-                {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot, Ppos_vector , Plot_MicPos);
-                }
+    if(Plot_Contour)
+    {     TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourFileName, fullsimulation_name,Save_Contour, NumRefs_Plot, Pmax_Plot, PldB_Plot, Ppos_vector , Plot_MicPos);
+    }
     
     //    //TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourPmaxFileName,0);
     //    //TerrainMesh_Contour(planes,initial_microphone_positions,num_points_in_plane_mapping,resolution,contourPLDBFileName,1);
     //
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    //////////////////////////////
+    //                          //
+    //                          //
+    //   Apply Defined Receiver //
+    //     Position             //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     //////////////////////////////////////////////////////
     //          Select which receiver position          //
@@ -985,146 +974,152 @@ void OneSourcePos(unsigned simnum_)
     }
     
 
+    //////////////////////////////
+    //                          //
+    //                          //
+    //  Calculate Diffraction   //
+    //                          //
+    //                          //
+    //////////////////////////////
+    
     if(BTMSIM)
     {
 
-    /////////////////////////////////////
-    ////      For Single Edge BTM      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    //clock_t t;
-    //t = clock();
+        /////////////////////////////////////
+        ////      For Single Edge BTM      //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        //clock_t t;
+        //t = clock();
 
-    //            //Corners 27 and 148 Two are equivalent
-    //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
-    //            Edge TempSingleEdge;
-    //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
-    //            
-    //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
-    //            TempSingleEdge.wall2ind=6;
-    //            TempSingleEdge.walls_along_edge.push_back(& planes[6]);
-    //            TempSingleEdge.Calculate_Solid_Angle();
-    //            
-    //            //Find the Norm of One Wedge Face
-    //            position_vector surface1_norm;
-    //            surface1_norm=TempSingleEdge.walls_along_edge[0]->normal;
-    //            
-    //            Edge * Ptr_To_Edge2Add;
-    //            Ptr_To_Edge2Add = &TempSingleEdge;
-    //            //Edge * EdgeHead;
-    //            EdgeHead=NULL;
-    //            
-    //            TempSingleEdge.AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
-    //            
-    //            double fsdiff=48000;
-    //            //
-    //            //    std::vector<int> viableplanes;
-    //            //    for(int planeInd=0;planeInd<121;planeInd++)
-    //            //    {
-    //            //        for(int cornInd=0; cornInd<planes[planeInd].corner_indices.size() ;cornInd++)
-    //            //        {  if(planes[planeInd].corner_indices[cornInd]==13)
-    //            //            {   viableplanes.push_back(planeInd);
-    //            //            }
-    //            //        }
-    //            //    }
-    //            //
-    //            OneEdgeBTM(TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
-    
-    //t = clock() - t;
-    //printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
-    
-    //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    /////////////////////////////////////
-    ////      For Single Edge BTM      //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
-    clock_t t;
-    t = clock();
-    Edge * TempSingleEdge;
-    TempSingleEdge = EdgeHead->next;
-    TempSingleEdge->Calculate_Solid_Angle();
+        //            //Corners 27 and 148 Two are equivalent
+        //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
+        //            Edge TempSingleEdge;
+        //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
+        //            
+        //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
+        //            TempSingleEdge.wall2ind=6;
+        //            TempSingleEdge.walls_along_edge.push_back(& planes[6]);
+        //            TempSingleEdge.Calculate_Solid_Angle();
+        //            
+        //            //Find the Norm of One Wedge Face
+        //            position_vector surface1_norm;
+        //            surface1_norm=TempSingleEdge.walls_along_edge[0]->normal;
+        //            
+        //            Edge * Ptr_To_Edge2Add;
+        //            Ptr_To_Edge2Add = &TempSingleEdge;
+        //            //Edge * EdgeHead;
+        //            EdgeHead=NULL;
+        //            
+        //            TempSingleEdge.AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
+        //            
+        //            double fsdiff=48000;
+        //            //
+        //            //    std::vector<int> viableplanes;
+        //            //    for(int planeInd=0;planeInd<121;planeInd++)
+        //            //    {
+        //            //        for(int cornInd=0; cornInd<planes[planeInd].corner_indices.size() ;cornInd++)
+        //            //        {  if(planes[planeInd].corner_indices[cornInd]==13)
+        //            //            {   viableplanes.push_back(planeInd);
+        //            //            }
+        //            //        }
+        //            //    }
+        //            //
+        //            OneEdgeBTM(TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+        
+        //t = clock() - t;
+        //printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
+        
+        //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        /////////////////////////////////////
+        ////      For Single Edge BTM      //
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        clock_t t;
+        t = clock();
+        Edge * TempSingleEdge;
+        TempSingleEdge = EdgeHead->next;
+        TempSingleEdge->Calculate_Solid_Angle();
 
-    //Find the Norm of One Wedge Face
-    position_vector surface1_norm;
-    surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
-    TempSingleEdge->alpha_w=2*pi;
+        //Find the Norm of One Wedge Face
+        position_vector surface1_norm;
+        surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+        TempSingleEdge->alpha_w=2*pi;
 
-    double fsdiff=48000;
-        
-    for(Which_Receiver=0; Which_Receiver<=Ppos_vector.size(); Which_Receiver++)
-    {
-        
-        //////////////////////////////////////////////////////
-        //          Prepare to Write File                   //
-        //////////////////////////////////////////////////////
-        
-        int Which_IR__=Which_Receiver;
-        //Write A file to hoLf the information of source position
-        char* whole_diff_filename_IR = new char[500];
-        // char * arrivalaz= new char[500];
-        // char * arrivalel= new char[500];
-        // char * sim_number= new char[500];
-        char * ir_number= new char[500];
-        
-        char * Ppos_x= new char[500];
-        char * Ppos_y= new char[500];
-        char * Ppos_z= new char[500];
-        
-        // snprintf(arrivalaz, 79, "%f", phi__);
-        // snprintf(arrivalel, 79, "%f", theta_i__);
-        snprintf(ir_number, 79, "%i", Which_IR__);
-        //  snprintf(sim_number, 79, "%i", Which_SIM__);
-        
-        snprintf(Ppos_x, 79, "%f", Ppos.x);
-        snprintf(Ppos_y, 79, "%f", Ppos.y);
-        snprintf(Ppos_z, 79, "%f", Ppos.z);
-        
-        strcat(whole_diff_filename_IR,directory);
-        //strcat(whole_filename_IR,"_");
-        strcat(whole_diff_filename_IR,simulation_name);
-        strcat(whole_diff_filename_IR,"_BTM_");               ///FOR BTM
-        //strcat(whole_diff_filename_IR,"_UTD_");                 ///FOR UTD
-        strcat(whole_diff_filename_IR,sim_number);
-        strcat(whole_diff_filename_IR,"_");
-        
-        //lets append zeros to the simulation number
-        
-        int numdigets= strlen(ir_number);
-        char* zeros=new char[10];
-        
-        zeros[0] = '\0';
-        
-        for(int addzeros=7-numdigets; addzeros>0; addzeros--)
+        double fsdiff=48000;
+            
+        for(Which_Receiver=0; Which_Receiver<=Ppos_vector.size(); Which_Receiver++)
         {
-            strcat(zeros,"0");
+            
+            //////////////////////////////////////////////////////
+            //          Prepare to Write BTM IR File            //
+            //////////////////////////////////////////////////////
+            
+            int Which_IR__=Which_Receiver;
+            //Write A file to hoLf the information of source position
+            char* whole_diff_filename_IR = new char[500];
+            // char * arrivalaz= new char[500];
+            // char * arrivalel= new char[500];
+            // char * sim_number= new char[500];
+            char * ir_number= new char[500];
+            
+            char * Ppos_x= new char[500];
+            char * Ppos_y= new char[500];
+            char * Ppos_z= new char[500];
+            
+            // snprintf(arrivalaz, 79, "%f", phi__);
+            // snprintf(arrivalel, 79, "%f", theta_i__);
+            snprintf(ir_number, 79, "%i", Which_IR__);
+            //  snprintf(sim_number, 79, "%i", Which_SIM__);
+            
+            snprintf(Ppos_x, 79, "%f", Ppos.x);
+            snprintf(Ppos_y, 79, "%f", Ppos.y);
+            snprintf(Ppos_z, 79, "%f", Ppos.z);
+            
+            strcat(whole_diff_filename_IR,directory);
+            //strcat(whole_filename_IR,"_");
+            strcat(whole_diff_filename_IR,simulation_name);
+            strcat(whole_diff_filename_IR,"_BTM_");               ///FOR BTM
+            //strcat(whole_diff_filename_IR,"_UTD_");                 ///FOR UTD
+            strcat(whole_diff_filename_IR,sim_number);
+            strcat(whole_diff_filename_IR,"_");
+            
+            //lets append zeros to the simulation number
+            
+            int numdigets= strlen(ir_number);
+            char* zeros=new char[10];
+            
+            zeros[0] = '\0';
+            
+            for(int addzeros=7-numdigets; addzeros>0; addzeros--)
+            {
+                strcat(zeros,"0");
+            }
+            strcat(zeros,ir_number);
+            
+            strcat(whole_diff_filename_IR,zeros);
+            strcat(whole_diff_filename_IR,"_IR_");
+            strcat(whole_diff_filename_IR,arrivalaz);
+            strcat(whole_diff_filename_IR,"_az_");
+            strcat(whole_diff_filename_IR,arrivalel);
+            strcat(whole_diff_filename_IR,"_el_Ppos_");
+            strcat(whole_diff_filename_IR,Ppos_x);
+            strcat(whole_diff_filename_IR,"i_");
+            strcat(whole_diff_filename_IR,Ppos_y);
+            strcat(whole_diff_filename_IR,"j_");
+            strcat(whole_diff_filename_IR,Ppos_z);
+            strcat(whole_diff_filename_IR,"k.txt");
+            std::cout<<whole_diff_filename_IR<<std::endl;
+            
+            
+            Ppos.assign(Ppos_vector[Which_Receiver]);
+            OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
         }
-        strcat(zeros,ir_number);
+        t = clock() - t;
+        printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
         
-        strcat(whole_diff_filename_IR,zeros);
-        strcat(whole_diff_filename_IR,"_IR_");
-        strcat(whole_diff_filename_IR,arrivalaz);
-        strcat(whole_diff_filename_IR,"_az_");
-        strcat(whole_diff_filename_IR,arrivalel);
-        strcat(whole_diff_filename_IR,"_el_Ppos_");
-        strcat(whole_diff_filename_IR,Ppos_x);
-        strcat(whole_diff_filename_IR,"i_");
-        strcat(whole_diff_filename_IR,Ppos_y);
-        strcat(whole_diff_filename_IR,"j_");
-        strcat(whole_diff_filename_IR,Ppos_z);
-        strcat(whole_diff_filename_IR,"k.txt");
-        std::cout<<whole_diff_filename_IR<<std::endl;
-        
-        
-        Ppos.assign(Ppos_vector[Which_Receiver]);
-        OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
-    }
-    t = clock() - t;
-    printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
-    
-    //
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     }
 
     ///////////////////////////////////
@@ -1161,9 +1156,14 @@ void OneSourcePos(unsigned simnum_)
     
     
     
-    /////////////////////////////////////
-    ////    Here We Plot the Geom      //
-    /////////////////////////////////////
+    //////////////////////////////
+    //                          //
+    //                          //
+    //     Plot the Geometry    //
+    //                          //
+    //                          //
+    //////////////////////////////
+    
     Plot_RecPos=true;
     
     if(plot_geom)
@@ -1174,8 +1174,13 @@ void OneSourcePos(unsigned simnum_)
     
     
     
-    
-    //	//*2.---------Frequency Bands--------------*
+    //////////////////////////////
+    //                          //
+    //                          //
+    //  Define Frequency Bands  //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     int num_bands=43;
     int nb[num_bands-1];
@@ -1186,8 +1191,13 @@ void OneSourcePos(unsigned simnum_)
         f_bands[i]=pow(10,(nb[i]/10));
     }
     
-    
-    //	//% *4c.------Plot the Original Source Orientation---------------------------------*
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Plot Other Details    //
+    //                          //
+    //                          //
+    //////////////////////////////
     
     
     //Canyon DEM
@@ -1200,9 +1210,15 @@ void OneSourcePos(unsigned simnum_)
     {
         //               plot_FieldAngle(planes);
     }
-    
-    //	//%*-5.------Definition of First Order Mirrored sources
-    //	//%          Generalize Sources into A structure----------------------------*
+  
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Definition of First   //
+    //  Order Mirrored sources  //
+    //         In Struct        //
+    //                          //
+    //////////////////////////////
     
     int num_planes=planes.size() ;
     int num_sources;
@@ -1313,10 +1329,16 @@ void OneSourcePos(unsigned simnum_)
     ////////////////////////////////////////////////////////////////////////////////////////////////
     std::cout<<"           Moving On to 2nd Order Sources"<<std::endl;
     
-    ////%*-5.------Definition of Higher Order Mirrored sources
-    ////%          Generalize Sources into A structure----------------------------*
-    //
     
+    //////////////////////////////
+    //                          //
+    //                          //
+    //   Definition of Higher   //
+    //  Order Mirrored sources  //
+    //         In Struct        //
+    //                          //
+    //////////////////////////////
+
     //============things declared for calculation of first order==========//
     //int num_planes=planes.size() ;
     //int num_sources=pow((num_planes-1),max_order);
@@ -1534,7 +1556,14 @@ void OneSourcePos(unsigned simnum_)
         }
     }
     
-    //////% *-7.------Consolidate Legal Sources-------------------------------------*
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Consolidate Legal     //
+    //          Sources         //
+    //                          //
+    //////////////////////////////
+
     //////% Legality check actually happens above and is recorded
     std::cout<<"~~~~~~~~~~~~~~Consolidating Legal Sources~~~~~~~~~~~~~~"<<std::endl;
     
@@ -1550,9 +1579,14 @@ void OneSourcePos(unsigned simnum_)
         
     }
     
-    
-    //////% *-7.------StoreSimulation-------------------------------------*
-    
+    //////////////////////////////
+    //                          //
+    //                          //
+    //    Store Simulation      //
+    //                          //
+    //                          //
+    //////////////////////////////
+  
     bool successfully_stored=false;
     
     elevation=elevation_confirm;
@@ -1569,8 +1603,16 @@ void OneSourcePos(unsigned simnum_)
     
     
     
+    //////////////////////////////
+    //                          //
+    //                          //
+    //   Consolidate Effective  //
+    //           Sources        //
+    //                          //
+    //                          //
+    //////////////////////////////
     
-    ////////% *-8a.------Consolidate Effective Sources-------------------------------------*
+    ////////% *-8a.------C-------------------------------------*
     ////////% Check which sources are effective and make a vector of pointers pointing to them
     
     std::cout<<"Testing Valid Sources for Audibility and Writing Output IR"<<std::endl;
