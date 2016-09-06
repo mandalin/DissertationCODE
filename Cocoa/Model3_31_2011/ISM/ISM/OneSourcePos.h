@@ -89,11 +89,11 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_MicPos=false;
     
     //Plotting of Contours
-    bool Plot_Contour=false;
+    bool Plot_Contour=true;
     bool Save_Contour=false;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
-    bool NumRefs_Plot=false;
+    bool NumRefs_Plot=true;
     
     double Temperature;
     
