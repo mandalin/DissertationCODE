@@ -50,8 +50,8 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
     
     char * directory= new char[1000];
-    strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
-    
+    //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
+    strcat(directory,"/Volumes/AMPULINA/2016AugustsSims/");
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
     strcat(directory,Which_Simulation_);
