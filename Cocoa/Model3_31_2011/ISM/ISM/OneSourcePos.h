@@ -32,6 +32,7 @@ void OneSourcePos(unsigned simnum_)
     double co=345.0;
     double s=5;                 //%seconds of reflections/post boom noise
     double	radius=350;         //radius of simulation domain
+    double resolution;          //Resolution for subsampling of ground planes
     
     
     //////////////////////////////
@@ -64,8 +65,14 @@ void OneSourcePos(unsigned simnum_)
     // Receiver Positions
     bool SubSampleSurface=true;             //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
-    bool OnlyGroundPlanesSubsampled=true;   //must add ground plane list to this. If SubSampleSurface=false,
+    bool OnlyGroundPlanesSubsampled=false;   //must add ground plane list to this. If SubSampleSurface=false,
                                             //this var is of no      consequence, no subsampling occurs.
+    
+    
+    
+    //double height_above_plane=1.2;      //1.2 meters listener height
+    double height_above_plane=.003175; // 1/8" above the plane
+    
     
     // Diffraction
     bool BTMSIM=false;
@@ -77,11 +84,19 @@ void OneSourcePos(unsigned simnum_)
     // GeometrySimple
     bool Box=false;
     bool L_shaped=false;
-    bool Blackbird=false;
+    bool Blackbird=true;
     bool CSF=false;
     bool Albert=false;
     bool Canyon=false;
-    bool Isolated_Wall=true;
+    bool Isolated_Wall=false;
+    
+    // Resolution
+    if(L_shaped)
+    {   resolution=2;}   //BlackBird_sim_37_noHPFing, All L shape Sims
+    if(Blackbird)
+    {   resolution=1;}   //Blackbird_sim_0_noHPFing
+    if(Isolated_Wall)
+    {   resolution=10;} //Isolated Wall
     
     //Plotting of Geometry and Receivers
     bool plot_geom=false;
@@ -89,11 +104,11 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_MicPos=false;
     
     //Plotting of Contours
-    bool Plot_Contour=true;
+    bool Plot_Contour=false;
     bool Save_Contour=false;
     bool PldB_Plot=false;
     bool Pmax_Plot=false;
-    bool NumRefs_Plot=true;
+    bool NumRefs_Plot=false;
     
     double Temperature;
     
@@ -459,6 +474,15 @@ void OneSourcePos(unsigned simnum_)
        
     }
     
+    if(!OnlyGroundPlanesSubsampled)
+    {
+        for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
+        {
+            
+                ground_planes.push_back(plane_ind);
+            
+        }
+    }
     
     //////////////////////////////
     //                          //
@@ -489,20 +513,14 @@ void OneSourcePos(unsigned simnum_)
     
     ///SET Subsample Surface, number of points per meter squared
     std::vector<position_vector> temp_sample_points;
-    //double resolution=2; //BlackBird_sim_37_noHPFing, All L shape Sims
-    //double resolution=1; //Blackbird_sim_0_noHPFing
-     double resolution=10;//Isolated Wall
-    
+
     
     std::vector<unsigned> num_points_in_plane_mapping;
     unsigned plane_indices;
     unsigned numplanessubsampled=0;
     unsigned initial_microphone_positions=Ppos_vector.size();
     unsigned plane_ind;
-    
-    
-   //double height_above_plane=1.2;      //1.2 meters listener height
-    double height_above_plane=.003175; // 1/8" above the plane
+
     
     if(SubSampleSurface)
     {
@@ -566,6 +584,7 @@ void OneSourcePos(unsigned simnum_)
         }
     }
     
+        
     std::cout<<"Number of Initial Mic Positions: "<<initial_microphone_positions<<std::endl;
     for(unsigned plane_indices=0; plane_indices<numplanessubsampled; plane_indices++)
     {
@@ -880,7 +899,7 @@ void OneSourcePos(unsigned simnum_)
     //////////////////////////////
     
     //NumRefs Contours
-    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/DissertationPostProcessing/Contours/Wall/Specular/1/NumRefs_Contour_Wall_Specular_1.txt";
+    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/DissertationPostProcessing/Contours/Wall/Specular/1/PLdB_Contour_Wall_Specular_1.txt";
     
 
     
