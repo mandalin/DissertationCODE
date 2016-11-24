@@ -52,7 +52,7 @@ void OneSourcePos(unsigned simnum_)
     
     char * directory= new char[1000];
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
-    strcat(directory,"/Volumes/AMPULINA/2016AugustsSims/");
+    strcat(directory,"/Volumes/AMPULINA/2016NovemberSims/");
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
     strcat(directory,Which_Simulation_);
@@ -63,7 +63,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=true;             //must be true for plotting a contour
+    bool SubSampleSurface=false;             //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=false;   //must add ground plane list to this. If SubSampleSurface=false,
                                             //this var is of no      consequence, no subsampling occurs.
@@ -84,11 +84,11 @@ void OneSourcePos(unsigned simnum_)
     // GeometrySimple
     bool Box=false;
     bool L_shaped=false;
-    bool Blackbird=true;
+    bool Blackbird=false;
     bool CSF=false;
     bool Albert=false;
     bool Canyon=false;
-    bool Isolated_Wall=false;
+    bool Isolated_Wall=true;
     
     // Resolution
     if(L_shaped)
@@ -99,7 +99,7 @@ void OneSourcePos(unsigned simnum_)
     {   resolution=10;} //Isolated Wall
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=false;
+    bool plot_geom=true;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     bool Plot_MicPos=false;
     
