@@ -109,10 +109,10 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
     std::cout<<endl<<endl;
     for(int n_diff=1;  n_diff<Ndiff ;n_diff++ )
     {
-        t=least_time+n_diff/fsdiff;
+        t=least_time+n_diff/fsdiff; // t = tau_o + tau
         
-        yarg=((co*co*t*t) - ((r*r) + (ro*ro) + (Z*Z))) / (2.0*r*ro);
-        //yargtau=((co*co*(2.0*(least_time*tau + tau*tau)))/(2.0*r*ro))+1;
+        yarg=((co*co*t*t) - ((r*r) + (ro*ro) + (Z*Z))) / (2.0*r*ro); //confirmed
+
         
         if(yarg  < 1)
         {    std::cout<<"Dude, there is an error, because the argument for y is negative and we are not prepared for imaginary number results"<<endl;
@@ -122,7 +122,7 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
         
         else
         {
-            y=acosh(yarg);
+            y=acosh(yarg); //confirmed
             
             Beta_num_1 = sin( (pi / theta_w) * (pi + theta + thetao) );
             Beta_num_2 = sin( (pi / theta_w) * (pi + theta - thetao) );
@@ -138,13 +138,15 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
             
             
             
-            //for spherical waves
+            //for spherical waves where source position is meaningful.
             //p_of_t=((-S*rho*co)/(4.0*pi*theta_w)) * Beta * (1.0/(r*ro*std::sinh(y))) * std::exp((-pi*y) / theta_w);
             
             //for plane waves
-            p_of_t=(source_to_apex_distance*4.0*pi) *((-S*rho*co)/(4.0*pi*theta_w)) * Beta * (1.0/(r*ro*std::sinh(y))) * std::exp((-pi*y) / theta_w);
+            S=1;
+            p_of_t=((-S*rho*co)/(4.0*pi*theta_w)) * Beta * (1.0/(r*ro*std::sinh(y))) * std::exp((-pi*y) / theta_w);
+            p_of_t=p_of_t*source_to_apex_distance;
             
-            p_of_t=p_of_t/fsdiff;
+            //p_of_t=p_of_t/fsdiff;
             
             //   A  e1_________e2     case 1
             //      e1____A____e2     case 2
@@ -181,7 +183,7 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
                         break;
                 }
             }
-            std::cout<<p_of_t<<" ";
+           // std::cout<<p_of_t<<" ";
             
         }
         
@@ -222,10 +224,15 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
     {
         fprintf(writeIR,"%f = diffraction delay\n",diffraction_delay  );
         fprintf(writeIR,"%f = incident pressure at Ppos for Source Strength =1\n\n",incident_pressure_at_ppos  );
+        fprintf(writeIR,"%f = Distance from Source to Ppos\n\n", Prop_dist_ppos  );
         
         //  fputs ("y=[",write);
         for(unsigned sample=0; sample<Ndiff; sample++)
         {
+            
+           // if (sample==1 && ImpulseResponse[sample]==0)
+           // { std::cout<<"Impulse Response is Empty";
+           // }
             fprintf(writeIR,"%f \n",(ImpulseResponse[sample]));
         }
         // fprintf(write,"];");

@@ -36,8 +36,8 @@ double blockwidth=5*0.0254;         //#inches, converted to meters.
     
     cf1.assign(-5,-walllength1south-1,0);
     cf2.assign(5,-walllength1south-1,0);
-    cf3.assign(5,walllength1north,0);
-    cf4.assign(-5,walllength1north,0);
+    cf3.assign(5,walllength1north+1,0);
+    cf4.assign(-5,walllength1north+1,0);
 
     temp.assign(-blockwidth,0,0);
                     c1_b=add(c1,temp);

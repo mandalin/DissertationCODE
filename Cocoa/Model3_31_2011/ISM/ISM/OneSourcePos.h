@@ -63,7 +63,7 @@ void OneSourcePos(unsigned simnum_)
     // Order of Simulation
     int max_order=10;
     // Receiver Positions
-    bool SubSampleSurface=false;             //must be true for plotting a contour
+    bool SubSampleSurface=true;             //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
     bool OnlyGroundPlanesSubsampled=false;   //must add ground plane list to this. If SubSampleSurface=false,
                                             //this var is of no      consequence, no subsampling occurs.
@@ -75,7 +75,7 @@ void OneSourcePos(unsigned simnum_)
     
     
     // Diffraction
-    bool BTMSIM=false;
+    bool BTMSIM=true;
     // Filtering
     bool dont_use_filtering=true;
     bool use_R_coeffs=false;
@@ -588,7 +588,7 @@ void OneSourcePos(unsigned simnum_)
     std::cout<<"Number of Initial Mic Positions: "<<initial_microphone_positions<<std::endl;
     for(unsigned plane_indices=0; plane_indices<numplanessubsampled; plane_indices++)
     {
-        std::cout<<"Number of Points in Plane "<<ground_planes[plane_indices]<<": "<<num_points_in_plane_mapping[plane_indices]<<std::endl;
+        std::cout<<"Number of Points in Plane "<<plane_indices<<": "<<num_points_in_plane_mapping[plane_indices]<<std::endl;
     }
     
     //////////////////////////////
@@ -1003,69 +1003,25 @@ void OneSourcePos(unsigned simnum_)
     
     if(BTMSIM)
     {
-
-        /////////////////////////////////////
-        ////      For Single Edge BTM      //
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-        //clock_t t;
-        //t = clock();
-
-        //            //Corners 27 and 148 Two are equivalent
-        //            // if wall1 is unknown, make it a negative 1, wall 29 is the front of the garage
-        //            Edge TempSingleEdge;
-        //            TempSingleEdge.assign(13,148,29, solidangle, unique_corners_output,planes); //first two corners are in Right Hand Order
-        //            
-        //            //void  assign(int corn1, int corn2, int wall1, double solid_angle, std::vector<corner> all_unique_corners, std::vector<wall> planes)
-        //            TempSingleEdge.wall2ind=6;
-        //            TempSingleEdge.walls_along_edge.push_back(& planes[6]);
-        //            TempSingleEdge.Calculate_Solid_Angle();
-        //            
-        //            //Find the Norm of One Wedge Face
-        //            position_vector surface1_norm;
-        //            surface1_norm=TempSingleEdge.walls_along_edge[0]->normal;
-        //            
-        //            Edge * Ptr_To_Edge2Add;
-        //            Ptr_To_Edge2Add = &TempSingleEdge;
-        //            //Edge * EdgeHead;
-        //            EdgeHead=NULL;
-        //            
-        //            TempSingleEdge.AddEdge(unique_corners_output, EdgeHead, Ptr_To_Edge2Add);
-        //            
-        //            double fsdiff=48000;
-        //            //
-        //            //    std::vector<int> viableplanes;
-        //            //    for(int planeInd=0;planeInd<121;planeInd++)
-        //            //    {
-        //            //        for(int cornInd=0; cornInd<planes[planeInd].corner_indices.size() ;cornInd++)
-        //            //        {  if(planes[planeInd].corner_indices[cornInd]==13)
-        //            //            {   viableplanes.push_back(planeInd);
-        //            //            }
-        //            //        }
-        //            //    }
-        //            //
-        //            OneEdgeBTM(TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
-        
-        //t = clock() - t;
-        //printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
-        
-        //
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-        /////////////////////////////////////
-        ////      For Single Edge BTM      //
-        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         clock_t t;
         t = clock();
+        
+        Edge * TempSingleEdge1;
+        Edge * TempSingleEdge2;
         Edge * TempSingleEdge;
-        TempSingleEdge = EdgeHead->next;
-        TempSingleEdge->Calculate_Solid_Angle();
+        
+        TempSingleEdge1 =   EdgeHead->next; //evaluate this contribution on plane 7
+        TempSingleEdge2=    TempSingleEdge1->next->next->next->next->next->next->next->next->next->next; //evaluate this contribution on plane 8
+        
+
+        TempSingleEdge1->Calculate_Solid_Angle();
+        TempSingleEdge2->Calculate_Solid_Angle();
+        
 
         //Find the Norm of One Wedge Face
         position_vector surface1_norm;
-        surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
-        TempSingleEdge->alpha_w=2*pi;
+        
 
         double fsdiff=48000;
             
@@ -1075,6 +1031,8 @@ void OneSourcePos(unsigned simnum_)
             //////////////////////////////////////////////////////
             //          Prepare to Write BTM IR File            //
             //////////////////////////////////////////////////////
+            
+
             
             int Which_IR__=Which_Receiver;
             //Write A file to hoLf the information of source position
@@ -1132,9 +1090,25 @@ void OneSourcePos(unsigned simnum_)
             strcat(whole_diff_filename_IR,"k.txt");
             std::cout<<whole_diff_filename_IR<<std::endl;
             
+            if(Which_Receiver>=1000 && Which_Receiver<4929) // plane 7
+            {
+                TempSingleEdge=TempSingleEdge1;
+                surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+                
+                
+                Ppos.assign(Ppos_vector[Which_Receiver]);
+                OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+            }
             
-            Ppos.assign(Ppos_vector[Which_Receiver]);
-            OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+            if(Which_Receiver>=4929 && Which_Receiver<8274) // plane 8
+            {
+                TempSingleEdge=TempSingleEdge2;
+                surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+                
+                Ppos.assign(Ppos_vector[Which_Receiver]);
+                OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+            }
+            
         }
         t = clock() - t;
         printf ("It took me %d clicks (%f seconds).\n",t,((float)t)/CLOCKS_PER_SEC);
