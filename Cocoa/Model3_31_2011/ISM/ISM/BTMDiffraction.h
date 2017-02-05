@@ -24,6 +24,7 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
     double edge_distance_a, edge_time_a;
     double edge_distance_b, edge_time_b;
     double temp1, temp2;
+    double delta_t=1/fsdiff;
     temp1=magnitude(sub(corner1, Ppos));
     temp2=magnitude(sub(corner1, Qpos));
     edge_distance_a = temp1 + temp2;
@@ -136,7 +137,10 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
             
             Beta= (Beta_num_1/Beta_denom_1) + (Beta_num_2/Beta_denom_2) + (Beta_num_3/Beta_denom_3) + (Beta_num_4/Beta_denom_4);
             
-            
+            if(n_diff==1)
+            {
+                ImpulseResponse[0]=Beta*std::sqrt(2/delta_t); //Solve for zeroth contribution
+            }
             
             //for spherical waves where source position is meaningful.
             //p_of_t=((-S*rho*co)/(4.0*pi*theta_w)) * Beta * (1.0/(r*ro*std::sinh(y))) * std::exp((-pi*y) / theta_w);
@@ -144,9 +148,8 @@ bool BTMDiffraction(unsigned which_case, double theta_w,double ro,double thetao,
             //for plane waves
             S=1;
             p_of_t=((-S*rho*co)/(4.0*pi*theta_w)) * Beta * (1.0/(r*ro*std::sinh(y))) * std::exp((-pi*y) / theta_w);
-            p_of_t=p_of_t*source_to_apex_distance;
-            
-            //p_of_t=p_of_t/fsdiff;
+            p_of_t=p_of_t*ro;
+            p_of_t=p_of_t/fsdiff;
             
             //   A  e1_________e2     case 1
             //      e1____A____e2     case 2

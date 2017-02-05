@@ -43,16 +43,13 @@ void OneSourcePos(unsigned simnum_)
     //                          //
     //////////////////////////////
     
-    // Where to Store Outputs
-    
-    //const char* directory = "/Volumes/WORKSPACE/InProgress/";
-    //const char* directory = "/Volumes/G-DRIVE/InProgress/";
-    //const char* directory = "/Volumes/PSU-WORKSPACE/InProgress2/"
-    //strcat(directory,"/Volumes/WORKSPACE-TWO/Wall/Specular/");
-    
+    // Where to Store Output
     char * directory= new char[1000];
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
-    strcat(directory,"/Volumes/AMPULINA/2016NovemberSims/");
+    
+    //--------Save Directory
+    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
     strcat(directory,Which_Simulation_);
@@ -60,28 +57,31 @@ void OneSourcePos(unsigned simnum_)
     
     
     
-    // Order of Simulation
+    //--------Order of Simulation
     int max_order=10;
-    // Receiver Positions
+    
+    //--------Receiver Positions
     bool SubSampleSurface=true;             //must be true for plotting a contour
     bool AddEdgesToSubsample=false;
-    bool OnlyGroundPlanesSubsampled=false;   //must add ground plane list to this. If SubSampleSurface=false,
+    bool OnlyGroundPlanesSubsampled=true;   //must add ground plane list to this. If SubSampleSurface=false,
                                             //this var is of no      consequence, no subsampling occurs.
+                                            // make true for Isolated Wall
     
     
-    
+    //--------Height Above Plane For Subsampled Surfaces
     //double height_above_plane=1.2;      //1.2 meters listener height
     double height_above_plane=.003175; // 1/8" above the plane
     
     
-    // Diffraction
-    bool BTMSIM=true;
-    // Filtering
+    //--------Diffraction
+    bool BTMSIM=false;
+    
+    //--------Filtering
     bool dont_use_filtering=true;
     bool use_R_coeffs=false;
     bool use_R_coeffs_and_Disk_Approx=false;
     
-    // GeometrySimple
+    //--------GeometrySimple
     bool Box=false;
     bool L_shaped=false;
     bool Blackbird=false;
@@ -99,7 +99,7 @@ void OneSourcePos(unsigned simnum_)
     {   resolution=10;} //Isolated Wall
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=true;
+    bool plot_geom=false;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     bool Plot_MicPos=false;
     
@@ -463,14 +463,17 @@ void OneSourcePos(unsigned simnum_)
 
         // Creates a list of the ground plane indices for subsampling
         radius_of_subsampling=20;
-        for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
+        
+        if(OnlyGroundPlanesSubsampled)
         {
-            if (planes[plane_ind].floorplane)
+            for(int plane_ind=0; plane_ind<planes.size(); plane_ind++ )
             {
-                ground_planes.push_back(plane_ind);
+                if (planes[plane_ind].floorplane)
+                {
+                    ground_planes.push_back(plane_ind);
+                }
             }
         }
-        
        
     }
     
@@ -559,7 +562,7 @@ void OneSourcePos(unsigned simnum_)
         {   for(unsigned plane_indices=0; plane_indices<num_original_walls; plane_indices++)
         {   numplanessubsampled++;
             
-            temp_sample_points=SubsamplePlane(planes[plane_indices], resolution,0, AddEdgesToSubsample, radius_of_subsampling);
+            temp_sample_points=SubsamplePlane(planes[plane_indices], resolution,height_above_plane, AddEdgesToSubsample, radius_of_subsampling);
             num_points_in_plane_mapping.push_back(temp_sample_points.size());
             
             Ppos_vector.reserve(Ppos_vector.size()+temp_sample_points.size());
