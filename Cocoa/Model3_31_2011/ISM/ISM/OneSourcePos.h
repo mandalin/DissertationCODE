@@ -48,7 +48,7 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/BTMIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -74,7 +74,7 @@ void OneSourcePos(unsigned simnum_)
     
     
     //--------Diffraction
-    bool BTMSIM=false;
+    bool BTMSIM=true;
     
     //--------Filtering
     bool dont_use_filtering=true;
@@ -92,11 +92,11 @@ void OneSourcePos(unsigned simnum_)
     
     // Resolution
     if(L_shaped)
-    {   resolution=2;}   //BlackBird_sim_37_noHPFing, All L shape Sims
+    {   resolution=2;}      //BlackBird_sim_37_noHPFing, All L shape Sims
     if(Blackbird)
-    {   resolution=1;}   //Blackbird_sim_0_noHPFing
+    {   resolution=1;}      //Blackbird_sim_0_noHPFing
     if(Isolated_Wall)
-    {   resolution=10;} //Isolated Wall
+    {   resolution=10;}     //Isolated Wall
     
     //Plotting of Geometry and Receivers
     bool plot_geom=false;
