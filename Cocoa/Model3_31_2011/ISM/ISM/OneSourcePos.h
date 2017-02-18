@@ -48,7 +48,8 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/BTMIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/TEMP/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    strcat(directory,"/Users/mandalin/Desktop/TempSim/");
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -1092,6 +1093,16 @@ void OneSourcePos(unsigned simnum_)
             strcat(whole_diff_filename_IR,Ppos_z);
             strcat(whole_diff_filename_IR,"k.txt");
             std::cout<<whole_diff_filename_IR<<std::endl;
+            
+            if(Which_Receiver>=0 && Which_Receiver<1000) // plane 7
+            {
+                TempSingleEdge=TempSingleEdge1;
+                surface1_norm=TempSingleEdge->walls_along_edge[0]->normal;
+                
+                
+                Ppos.assign(Ppos_vector[Which_Receiver]);
+                OneEdgeBTM(*TempSingleEdge, surface1_norm, Qpos, Ppos ,  co /*soundspeed*/,  fsdiff, simnum_,  Which_Receiver, whole_diff_filename_IR, directory, unique_corners_output);   //
+            }
             
             if(Which_Receiver>=1000 && Which_Receiver<4929) // plane 7
             {
