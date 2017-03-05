@@ -48,8 +48,8 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/TEMP/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
-    strcat(directory,"/Users/mandalin/Desktop/TempSim/");
+    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    //strcat(directory,"/Users/mandalin/Desktop/TempSim/");
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -75,7 +75,7 @@ void OneSourcePos(unsigned simnum_)
     
     
     //--------Diffraction
-    bool BTMSIM=true;
+    bool BTMSIM=false;
     
     //--------Filtering
     bool dont_use_filtering=true;
