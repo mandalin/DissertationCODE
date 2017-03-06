@@ -36,7 +36,7 @@ bool pointvisible(position_vector source_position,position_vector receiver_posit
     }
         
     bool absvar,tvar;
-    absvar=(t>=0 && t<=1 )|| (t<=0 && t>=-1) ;
+    absvar=(t>=0 && t<=1.00 )|| (t<=0 && t>=-1.00) ;
     tvar=(t>0); 
     
 	if((absvar) && (tvar))  //this case is only true if plane is between source and receiver

@@ -48,7 +48,9 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    
+    strcat(directory,"/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularIR/");
     //strcat(directory,"/Users/mandalin/Desktop/TempSim/");
     
     char * Which_Simulation_ = new char[20];
@@ -70,8 +72,8 @@ void OneSourcePos(unsigned simnum_)
     
     
     //--------Height Above Plane For Subsampled Surfaces
-    //double height_above_plane=1.2;      //1.2 meters listener height
-    double height_above_plane=.003175; // 1/8" above the plane
+    double height_above_plane=1.2;      //1.2 meters listener height
+    //double height_above_plane=.003175; // 1/8" above the plane
     
     
     //--------Diffraction
@@ -84,12 +86,12 @@ void OneSourcePos(unsigned simnum_)
     
     //--------GeometrySimple
     bool Box=false;
-    bool L_shaped=false;
+    bool L_shaped=true;
     bool Blackbird=false;
     bool CSF=false;
     bool Albert=false;
     bool Canyon=false;
-    bool Isolated_Wall=true;
+    bool Isolated_Wall=false;
     
     // Resolution
     if(L_shaped)
@@ -834,7 +836,7 @@ void OneSourcePos(unsigned simnum_)
     //                          //
     //////////////////////////////
     
-    unsigned Which_Receiver = 1;
+    unsigned Which_Receiver = 6;
     
     char* fullsimulation_name = new char[500];
     
