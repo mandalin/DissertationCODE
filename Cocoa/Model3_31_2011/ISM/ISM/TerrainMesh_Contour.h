@@ -193,7 +193,7 @@ void  TerrainMesh_Contour(std::vector<wall> walls, int initial_microphone_positi
             //PLdBs[ind]=PLdBs[ind]-84.13361;  //this is hardcoded PLdB of ground waveform @104 (not halved)
             //PLdBs[ind]=PLdBs[ind]-103.6918;     // Wall Input this subtracts the PLdB of the input waveform (halved) 109.8323
             
-            PLdBs[ind]=PLdBs[ind]-109.8323;     //Wall Input this subtracts the PLdB of the input waveform (not halved)109.8323
+            PLdBs[ind]=PLdBs[ind]-92.6044;     //Wall Input this subtracts the PLdB of the input waveform (not halved)92.6044
             if(PLdBs[ind]>maxPL)
             {maxPL=PLdBs[ind];}
             if(PLdBs[ind]<minPL)
