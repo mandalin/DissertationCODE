@@ -107,11 +107,15 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_MicPos=false;
     
     //Plotting of Contours
-    bool Plot_Contour=false;
+    bool Plot_Contour=true;
     bool Save_Contour=false;
-    bool PldB_Plot=false;
+    bool PldB_Plot=true;
     bool Pmax_Plot=false;
     bool NumRefs_Plot=false;
+    
+    //NumRefs Contours
+    const char * contourFileName="/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularContour/1 commit e80f82c7966b00ca9cab898f708a6b82077e61af/PLdB_Contour_Wall_2.txt";
+    
     
     double Temperature;
     
@@ -904,9 +908,7 @@ void OneSourcePos(unsigned simnum_)
     //                          //
     //////////////////////////////
     
-    //NumRefs Contours
-    const char * contourFileName="/Users/mandalin/Desktop/Sort Me Now/DissertationPostProcessing/Contours/Wall/Specular/1/PLdB_Contour_Wall_Specular_1.txt";
-    
+
 
     
     //PLdB CONTOURS
