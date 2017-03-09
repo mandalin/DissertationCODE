@@ -48,10 +48,8 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
-    
-    strcat(directory,"/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularIR/");
-    //strcat(directory,"/Users/mandalin/Desktop/TempSim/");
+    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    //strcat(directory,"/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularIR/");
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -86,12 +84,12 @@ void OneSourcePos(unsigned simnum_)
     
     //--------GeometrySimple
     bool Box=false;
-    bool L_shaped=true;
+    bool L_shaped=false;
     bool Blackbird=false;
     bool CSF=false;
     bool Albert=false;
     bool Canyon=false;
-    bool Isolated_Wall=false;
+    bool Isolated_Wall=true;
     
     // Resolution
     if(L_shaped)
@@ -104,7 +102,7 @@ void OneSourcePos(unsigned simnum_)
     //Plotting of Geometry and Receivers
     bool plot_geom=false;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
-    bool Plot_MicPos=false;
+    bool Plot_MicPos=true;
     
     //Plotting of Contours
     bool Plot_Contour=true;
@@ -114,7 +112,7 @@ void OneSourcePos(unsigned simnum_)
     bool NumRefs_Plot=false;
     
     //NumRefs Contours
-    const char * contourFileName="/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularContour/1 commit e80f82c7966b00ca9cab898f708a6b82077e61af/PLdB_Contour_Wall_2.txt";
+    const char * contourFileName="/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularContour/1 commit 428f65ed0d89646c474499b3b6be6a02c1863111/PLdB_Contour_Wall_2 copy.txt";
     
     
     double Temperature;
