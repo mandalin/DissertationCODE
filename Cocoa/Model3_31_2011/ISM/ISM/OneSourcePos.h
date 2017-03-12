@@ -102,7 +102,7 @@ void OneSourcePos(unsigned simnum_)
     {   resolution=10;}     //Isolated Wall
     
     //Plotting of Geometry and Receivers
-    bool plot_geom=false;
+    bool plot_geom=true;
     bool Plot_RecPos=false; //dont use with subsampled receiver surfaces !
     bool Plot_MicPos=true;
     
@@ -313,12 +313,6 @@ void OneSourcePos(unsigned simnum_)
         Ppos_vector.push_back(Ppos107);
         Ppos_vector.push_back(Ppos104);
         
-        //        ground_planes.push_back(32);
-        //        ground_planes.push_back(33);
-        //        ground_planes.push_back(34);
-        //        ground_planes.push_back(35);
-        
-        
         Ppos91.assign(Ppos_vector[0]);
         Ppos92.assign(Ppos_vector[1 ]);
         Ppos93.assign(Ppos_vector[2] );
@@ -343,17 +337,15 @@ void OneSourcePos(unsigned simnum_)
         for (int i=0; i<Ppos_vector.size(); i++)
         {   std::cout<<std::endl<<Ppos_vector[i].x;
         }
-        
-        
-        
-        
-        
+
         radius_of_subsampling=200*.3048;
         
-        //        for(int ground_inds=0; ground_inds<ground_planes.size(); ground_inds++ )
-        //        {
-        //            planes[ground_planes[ground_inds]].floorplane=true;
-        //        }
+        for(int ground_inds=0; ground_inds<planes.size(); ground_inds++ )
+        {
+            if(planes[ground_inds].floorplane==true)
+            {   ground_planes.push_back(ground_inds);
+            }
+        }
     }
     
     //************CSF
@@ -369,11 +361,8 @@ void OneSourcePos(unsigned simnum_)
         ground_planes.push_back(27);
         
         radius_of_subsampling=200*3048;
+
         
-        for(int ground_inds=0; ground_inds<ground_planes.size(); ground_inds++ )
-        {
-            planes[ground_planes[ground_inds]].floorplane=true;
-        }
         
     }
     

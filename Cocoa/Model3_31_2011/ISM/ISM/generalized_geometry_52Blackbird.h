@@ -27,7 +27,7 @@ double radius_of_geom=343*seconds_of_reflection ;
 //
     double mPERft=.3048;
 double mPERin=.0254;
-radius_of_geom=500*mPERft;
+radius_of_geom=300*mPERft;
 double height=2.4638; //height of the house is approximated at 2.6
 position_vector ext_wall_height(0,0,2.4638);
 
@@ -1616,9 +1616,9 @@ for(int wall_num=0; wall_num<num_wallfaces; wall_num++)
     faces.push_back(floor1);
     
     /////////////
-    wall floor2(floor2_corn_inds,5);
+    wall floor2(floor2_corn_inds,6);
     
-    for(int ind=0; ind< 5; ind++)
+    for(int ind=0; ind< 6; ind++)
     {   
         corner_index=floor2.corner_indices[ind];
         tempcorn=all_unique_corners[corner_index];
@@ -1627,7 +1627,7 @@ for(int wall_num=0; wall_num<num_wallfaces; wall_num++)
     }
     floor2.num=faces.size();
     floor2.setnorm();  
-    floor2.mother_wall_numpointsperpoly.push_back(5);//assumes each face is a single polygon
+    floor2.mother_wall_numpointsperpoly.push_back(6);//assumes each face is a single polygon
     floor2.floorplane=true;
     faces.push_back(floor2);
     
