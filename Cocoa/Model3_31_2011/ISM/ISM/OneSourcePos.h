@@ -48,8 +48,10 @@ void OneSourcePos(unsigned simnum_)
     //strcat(directory,"/Users/mandalin/Desktop/TempXcodeOut/Specular/");
     
     //--------Save Directory
-    strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
+    //strcat(directory,"/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularIR/");
     //strcat(directory,"/Volumes/AMPULINA/2017/L/ListenerLevel/SpecularIR/");
+    strcat(directory,"/Volumes/AMPULINA/2017/BlackBird/GroundLevel/SpecularIR/");
+    
     
     char * Which_Simulation_ = new char[20];
     snprintf(Which_Simulation_, 20, "%i",  Which_Simulation);
@@ -70,8 +72,8 @@ void OneSourcePos(unsigned simnum_)
     
     
     //--------Height Above Plane For Subsampled Surfaces
-    double height_above_plane=1.2;      //1.2 meters listener height
-    //double height_above_plane=.003175; // 1/8" above the plane
+    //double height_above_plane=1.2;      //1.2 meters listener height
+    double height_above_plane=.003175; // 1/8" above the plane
     
     
     //--------Diffraction
@@ -85,11 +87,11 @@ void OneSourcePos(unsigned simnum_)
     //--------GeometrySimple
     bool Box=false;
     bool L_shaped=false;
-    bool Blackbird=false;
+    bool Blackbird=true;
     bool CSF=false;
     bool Albert=false;
     bool Canyon=false;
-    bool Isolated_Wall=true;
+    bool Isolated_Wall=false;
     
     // Resolution
     if(L_shaped)
@@ -105,9 +107,9 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_MicPos=true;
     
     //Plotting of Contours
-    bool Plot_Contour=true;
+    bool Plot_Contour=false;
     bool Save_Contour=false;
-    bool PldB_Plot=true;
+    bool PldB_Plot=false;
     bool Pmax_Plot=false;
     bool NumRefs_Plot=false;
     
