@@ -107,15 +107,16 @@ void OneSourcePos(unsigned simnum_)
     bool Plot_MicPos=true;
     
     //Plotting of Contours
-    bool Plot_Contour=false;
+    bool Plot_Contour=true;
     bool Save_Contour=false;
     bool PldB_Plot=false;
-    bool Pmax_Plot=false;
+    bool Pmax_Plot=true;
     bool NumRefs_Plot=false;
     
     //NumRefs Contours
-    const char * contourFileName="/Volumes/AMPULINA/2017/Wall/GroundLevel/SpecularContour/1 commit 428f65ed0d89646c474499b3b6be6a02c1863111/PLdB_Contour_Wall_2 copy.txt";
-    
+    const char * contourFileName="/Volumes/AMPULINA/2017/Blackbird/GroundLevel/SpecularContour/1/Pmax_Contour_Wall_2.txt";
+    //const char * contourFileName="/Volumes/AMPULINA/2017/Blackbird/GroundLevel/SpecularContour/1/NumRefs_Contour_Wall_2.txt";
+    //const char * contourFileName="/Volumes/AMPULINA/2017/Blackbird/GroundLevel/SpecularContour/1/PLdB_Contour_Wall_2.txt";
     
     double Temperature;
     
