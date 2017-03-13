@@ -27,7 +27,7 @@ double radius_of_geom=343*seconds_of_reflection ;
 //
     double mPERft=.3048;
 double mPERin=.0254;
-radius_of_geom=300*mPERft;
+radius_of_geom=200*mPERft;
 double height=2.4638; //height of the house is approximated at 2.6
 position_vector ext_wall_height(0,0,2.4638);
 
@@ -95,10 +95,10 @@ crt12=add(cr12,ext_wall_height); crt13=add(cr13,ext_wall_height); crt14=add(cr14
 
 // Radius Corners
 corner cr_edge0, cr_edge1, cr_edge2, cr_edge3;
-cr_edge0.assign(-radius_of_geom*sqrt(2),-radius_of_geom*sqrt(2),0);
-cr_edge1.assign(-radius_of_geom*sqrt(2),radius_of_geom*sqrt(2),0);
-cr_edge2.assign(radius_of_geom*sqrt(2),radius_of_geom*sqrt(2),0);
-cr_edge3.assign(radius_of_geom*sqrt(2),-radius_of_geom*sqrt(2),0);
+cr_edge0.assign(-radius_of_geom*sqrt(2)/4,-radius_of_geom*sqrt(2)/3,0);
+cr_edge1.assign(-radius_of_geom*sqrt(2)/4,radius_of_geom*sqrt(2)/2,0);
+cr_edge2.assign(radius_of_geom*sqrt(2)/2,radius_of_geom*sqrt(2)/3,0);
+cr_edge3.assign(radius_of_geom*sqrt(2)/2,-radius_of_geom*sqrt(2)/3,0);
     
     
     //push all original corners back into a single vector
@@ -1574,10 +1574,10 @@ for(int wall_num=0; wall_num<num_wallfaces; wall_num++)
 /////////////////////////////////
 ///// Floor Indices
 //   
-    unsigned floor0_corn_inds[6]={0,1,57,56,c118_, c100_ };   
-    unsigned floor1_corn_inds[10]={1,2,3,4,32,31,30,29,58,57};    
-    unsigned floor2_corn_inds[6]={29,28, cr100_, cr118_, 59,58};      
-    unsigned floor3_corn_inds[19]={56, c118_, c117_, c116_, c115_, c112_, c111_, c109_, c108_, c107_, c106_, cr109_,cr111_, cr112_, cr115_, cr116_, cr117_, cr118_,59}; 
+    unsigned floor0_corn_inds[6]={0,1,57,56,c118_, c100_ };  //88
+    unsigned floor1_corn_inds[10]={1,2,3,4,32,31,30,29,58,57};   //89
+    unsigned floor2_corn_inds[6]={29,28, cr100_, cr118_, 59,58};     //90
+    unsigned floor3_corn_inds[19]={56, c118_, c117_, c116_, c115_, c112_, c111_, c109_, c108_, c107_, c106_, cr109_,cr111_, cr112_, cr115_, cr116_, cr117_, cr118_,59}; //91
     
     unsigned floor4_corn_inds[7]={c101_, c102_, c103_,  c104_, c105_,  12, 13 };  
     unsigned floor5_corn_inds[7]={cr101_, cr14_, cr13_, cr105_, cr104_, cr103_, cr102_}; 
